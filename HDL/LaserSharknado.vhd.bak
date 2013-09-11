@@ -1,0 +1,14 @@
+
+
+entity LaserSharknado is
+port(
+
+);
+end LaserSharknado;
+
+
+architecture behavioural of LaserSharknado is
+
+begin
+
+end behavioural;

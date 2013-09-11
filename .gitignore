@@ -15,3 +15,11 @@
 *.exe
 *.out
 *.app
+
+
+#VHDL Stuff
+*.cdb
+*.hdb
+*.rdb
+*.tdf
+*.log*

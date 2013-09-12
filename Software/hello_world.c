@@ -17,6 +17,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "altera_up_avalon_character_lcd.h"
+#include "timer.h"
 
 #define switches (volatile char *) 0x0002000
 #define leds (char *) 0x0002010
@@ -41,9 +42,9 @@ int main()
 
 	printf("hello, world!\n");
 
-	while (1){
-		*leds = *switches;
-	}
+	*leds = *switches;
+
+	timer_test();
 
 	return 0;
 }

@@ -2,9 +2,9 @@
  * alt_sys_init.c - HAL initialization source
  *
  * Machine generated for CPU 'nios2_qsys_0' in SOPC Builder design 'nios_system'
- * SOPC Builder design path: C:/Users/jorde_000/Documents/GitHub/LaserSharknado/HDL/nios_system.sopcinfo
+ * SOPC Builder design path: ../HDL/nios_system.sopcinfo
  *
- * Generated: Tue Sep 10 18:23:48 PDT 2013
+ * Generated: Thu Sep 12 15:48:06 PDT 2013
  */
 
 /*
@@ -60,6 +60,7 @@
 
 #include "altera_nios2_qsys_irq.h"
 #include "altera_avalon_jtag_uart.h"
+#include "altera_avalon_timer.h"
 #include "altera_up_avalon_character_lcd.h"
 
 /*
@@ -68,6 +69,9 @@
 
 ALTERA_NIOS2_QSYS_IRQ_INSTANCE ( NIOS2_QSYS_0, nios2_qsys_0);
 ALTERA_AVALON_JTAG_UART_INSTANCE ( JTAG_UART_0, jtag_uart_0);
+ALTERA_AVALON_TIMER_INSTANCE ( HAL_SYSTEM_TIMER, HAL_system_timer);
+ALTERA_AVALON_TIMER_INSTANCE ( HARDWARE_TIMER, hardware_timer);
+ALTERA_AVALON_TIMER_INSTANCE ( TIMESTAMP_TIMER, timestamp_timer);
 ALTERA_UP_AVALON_CHARACTER_LCD_INSTANCE ( CHARACTER_LCD_0, character_lcd_0);
 
 /*
@@ -91,6 +95,9 @@ void alt_irq_init ( const void* base )
 
 void alt_sys_init( void )
 {
+    ALTERA_AVALON_TIMER_INIT ( HAL_SYSTEM_TIMER, HAL_system_timer);
+    ALTERA_AVALON_TIMER_INIT ( HARDWARE_TIMER, hardware_timer);
+    ALTERA_AVALON_TIMER_INIT ( TIMESTAMP_TIMER, timestamp_timer);
     ALTERA_AVALON_JTAG_UART_INIT ( JTAG_UART_0, jtag_uart_0);
     ALTERA_UP_AVALON_CHARACTER_LCD_INIT ( CHARACTER_LCD_0, character_lcd_0);
 }

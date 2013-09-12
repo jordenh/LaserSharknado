@@ -142,7 +142,9 @@ ACDS_VERSION := 12.0sp2
 ELF := LaserSharknado.elf
 
 # Paths to C, C++, and assembly source files.
-C_SRCS := hello_world.c
+C_SRCS += hello_world.c
+C_SRCS += timer.c
+C_SRCS += Exercises/excercise2.c
 CXX_SRCS :=
 ASM_SRCS :=
 
@@ -177,7 +179,7 @@ CRT0 :=
 SYS_LIB :=
 
 # Define path to the root of the BSP.
-BSP_ROOT_DIR := C:/Users/jorde_000/Documents/GitHub/LaserSharknado/LaserSharknado_bsp/
+BSP_ROOT_DIR := C:\Users\Gord\Documents\repos\LaserSharknado\LaserSharknado_bsp
 
 # List of application specific include directories, library directories and library names
 APP_INCLUDE_DIRS :=

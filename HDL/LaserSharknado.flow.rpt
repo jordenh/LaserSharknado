@@ -1,5 +1,5 @@
 Flow report for LaserSharknado
-Tue Sep 10 18:18:11 2013
+Thu Sep 12 15:49:36 2013
 Quartus II 32-bit Version 12.0 Build 263 08/02/2012 Service Pack 2 SJ Web Edition
 
 
@@ -38,17 +38,17 @@ applicable agreement for further details.
 +------------------------------------------------------------------------------------+
 ; Flow Summary                                                                       ;
 +------------------------------------+-----------------------------------------------+
-; Flow Status                        ; Successful - Tue Sep 10 18:18:11 2013         ;
+; Flow Status                        ; Successful - Thu Sep 12 15:49:36 2013         ;
 ; Quartus II 32-bit Version          ; 12.0 Build 263 08/02/2012 SP 2 SJ Web Edition ;
 ; Revision Name                      ; LaserSharknado                                ;
 ; Top-level Entity Name              ; LaserSharknado                                ;
 ; Family                             ; Cyclone II                                    ;
 ; Device                             ; EP2C35F672C6                                  ;
 ; Timing Models                      ; Final                                         ;
-; Total logic elements               ; 3,365 / 33,216 ( 10 % )                       ;
-;     Total combinational functions  ; 3,130 / 33,216 ( 9 % )                        ;
-;     Dedicated logic registers      ; 2,052 / 33,216 ( 6 % )                        ;
-; Total registers                    ; 2120                                          ;
+; Total logic elements               ; 3,925 / 33,216 ( 12 % )                       ;
+;     Total combinational functions  ; 3,609 / 33,216 ( 11 % )                       ;
+;     Dedicated logic registers      ; 2,487 / 33,216 ( 7 % )                        ;
+; Total registers                    ; 2555                                          ;
 ; Total pins                         ; 69 / 475 ( 15 % )                             ;
 ; Total virtual pins                 ; 0                                             ;
 ; Total memory bits                  ; 79,488 / 483,840 ( 16 % )                     ;
@@ -62,7 +62,7 @@ applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 09/10/2013 18:17:09 ;
+; Start date & time ; 09/12/2013 15:48:32 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; LaserSharknado      ;
 +-------------------+---------------------+
@@ -73,7 +73,7 @@ applicable agreement for further details.
 +-------------------------------------+---------------------------------------------------------------+---------------+---------------------------------+------------+
 ; Assignment Name                     ; Value                                                         ; Default Value ; Entity Name                     ; Section Id ;
 +-------------------------------------+---------------------------------------------------------------+---------------+---------------------------------+------------+
-; COMPILER_SIGNATURE_ID               ; 216075646637533.137886222805952                               ; --            ; --                              ; --         ;
+; COMPILER_SIGNATURE_ID               ; 174058758851056.137902611201824                               ; --            ; --                              ; --         ;
 ; IP_TOOL_ENV                         ; qsys                                                          ; --            ; altera_avalon_sc_fifo           ; --         ;
 ; IP_TOOL_ENV                         ; qsys                                                          ; --            ; altera_merlin_burst_adapter     ; --         ;
 ; IP_TOOL_ENV                         ; qsys                                                          ; --            ; altera_merlin_master_agent      ; --         ;
@@ -84,6 +84,7 @@ applicable agreement for further details.
 ; IP_TOOL_ENV                         ; qsys                                                          ; --            ; altera_merlin_width_adapter     ; --         ;
 ; IP_TOOL_ENV                         ; qsys                                                          ; --            ; altera_reset_controller         ; --         ;
 ; IP_TOOL_ENV                         ; qsys                                                          ; --            ; nios_system                     ; --         ;
+; IP_TOOL_ENV                         ; qsys                                                          ; --            ; nios_system_HAL_system_timer    ; --         ;
 ; IP_TOOL_ENV                         ; qsys                                                          ; --            ; nios_system_LEDs                ; --         ;
 ; IP_TOOL_ENV                         ; qsys                                                          ; --            ; nios_system_addr_router         ; --         ;
 ; IP_TOOL_ENV                         ; qsys                                                          ; --            ; nios_system_addr_router_001     ; --         ;
@@ -114,6 +115,7 @@ applicable agreement for further details.
 ; IP_TOOL_NAME                        ; altera_merlin_width_adapter                                   ; --            ; altera_merlin_width_adapter     ; --         ;
 ; IP_TOOL_NAME                        ; altera_reset_controller                                       ; --            ; altera_reset_controller         ; --         ;
 ; IP_TOOL_NAME                        ; qsys                                                          ; --            ; nios_system                     ; --         ;
+; IP_TOOL_NAME                        ; altera_avalon_timer                                           ; --            ; nios_system_HAL_system_timer    ; --         ;
 ; IP_TOOL_NAME                        ; altera_avalon_pio                                             ; --            ; nios_system_LEDs                ; --         ;
 ; IP_TOOL_NAME                        ; altera_merlin_router                                          ; --            ; nios_system_addr_router         ; --         ;
 ; IP_TOOL_NAME                        ; altera_merlin_router                                          ; --            ; nios_system_addr_router_001     ; --         ;
@@ -144,6 +146,7 @@ applicable agreement for further details.
 ; IP_TOOL_VERSION                     ; 12.0                                                          ; --            ; altera_merlin_width_adapter     ; --         ;
 ; IP_TOOL_VERSION                     ; 12.0                                                          ; --            ; altera_reset_controller         ; --         ;
 ; IP_TOOL_VERSION                     ; 12.0sp2                                                       ; --            ; nios_system                     ; --         ;
+; IP_TOOL_VERSION                     ; 12.0                                                          ; --            ; nios_system_HAL_system_timer    ; --         ;
 ; IP_TOOL_VERSION                     ; 12.0                                                          ; --            ; nios_system_LEDs                ; --         ;
 ; IP_TOOL_VERSION                     ; 12.0                                                          ; --            ; nios_system_addr_router         ; --         ;
 ; IP_TOOL_VERSION                     ; 12.0                                                          ; --            ; nios_system_addr_router_001     ; --         ;
@@ -171,7 +174,7 @@ applicable agreement for further details.
 ; PARTITION_COLOR                     ; 16764057                                                      ; --            ; --                              ; Top        ;
 ; PARTITION_FITTER_PRESERVATION_LEVEL ; PLACEMENT_AND_ROUTING                                         ; --            ; --                              ; Top        ;
 ; PARTITION_NETLIST_TYPE              ; SOURCE                                                        ; --            ; --                              ; Top        ;
-; SLD_INFO                            ; QSYS_NAME nios_system HAS_SOPCINFO 1 GENERATION_ID 1378861803 ; --            ; nios_system                     ; --         ;
+; SLD_INFO                            ; QSYS_NAME nios_system HAS_SOPCINFO 1 GENERATION_ID 1379025985 ; --            ; nios_system                     ; --         ;
 ; SYNTHESIS_ONLY_QIP                  ; On                                                            ; --            ; --                              ; --         ;
 +-------------------------------------+---------------------------------------------------------------+---------------+---------------------------------+------------+
 
@@ -181,11 +184,11 @@ applicable agreement for further details.
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis      ; 00:00:24     ; 1.0                     ; 423 MB              ; 00:00:24                           ;
-; Fitter                    ; 00:00:29     ; 1.0                     ; 458 MB              ; 00:00:29                           ;
-; TimeQuest Timing Analyzer ; 00:00:03     ; 1.0                     ; 318 MB              ; 00:00:03                           ;
-; Assembler                 ; 00:00:04     ; 1.0                     ; 342 MB              ; 00:00:04                           ;
-; Total                     ; 00:01:00     ; --                      ; --                  ; 00:01:00                           ;
+; Analysis & Synthesis      ; 00:00:30     ; 1.0                     ; 439 MB              ; 00:00:27                           ;
+; Fitter                    ; 00:00:24     ; 1.0                     ; 497 MB              ; 00:00:24                           ;
+; TimeQuest Timing Analyzer ; 00:00:03     ; 1.0                     ; 338 MB              ; 00:00:03                           ;
+; Assembler                 ; 00:00:04     ; 1.0                     ; 360 MB              ; 00:00:03                           ;
+; Total                     ; 00:01:01     ; --                      ; --                  ; 00:00:57                           ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
@@ -194,10 +197,10 @@ applicable agreement for further details.
 +---------------------------+------------------+-----------+------------+----------------+
 ; Module Name               ; Machine Hostname ; OS Name   ; OS Version ; Processor type ;
 +---------------------------+------------------+-----------+------------+----------------+
-; Analysis & Synthesis      ; Jorden-PC        ; Windows 7 ; 6.2        ; x86_64         ;
-; Fitter                    ; Jorden-PC        ; Windows 7 ; 6.2        ; x86_64         ;
-; TimeQuest Timing Analyzer ; Jorden-PC        ; Windows 7 ; 6.2        ; x86_64         ;
-; Assembler                 ; Jorden-PC        ; Windows 7 ; 6.2        ; x86_64         ;
+; Analysis & Synthesis      ; GThinkPad        ; Windows 7 ; 6.2        ; x86_64         ;
+; Fitter                    ; GThinkPad        ; Windows 7 ; 6.2        ; x86_64         ;
+; TimeQuest Timing Analyzer ; GThinkPad        ; Windows 7 ; 6.2        ; x86_64         ;
+; Assembler                 ; GThinkPad        ; Windows 7 ; 6.2        ; x86_64         ;
 +---------------------------+------------------+-----------+------------+----------------+
 
 

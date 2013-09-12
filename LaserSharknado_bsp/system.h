@@ -2,9 +2,9 @@
  * system.h - SOPC Builder system and BSP software package information
  *
  * Machine generated for CPU 'nios2_qsys_0' in SOPC Builder design 'nios_system'
- * SOPC Builder design path: C:/Users/jorde_000/Documents/GitHub/LaserSharknado/HDL/nios_system.sopcinfo
+ * SOPC Builder design path: ../HDL/nios_system.sopcinfo
  *
- * Generated: Tue Sep 10 18:23:48 PDT 2013
+ * Generated: Thu Sep 12 15:48:06 PDT 2013
  */
 
 /*
@@ -127,8 +127,35 @@
 #define __ALTERA_AVALON_NEW_SDRAM_CONTROLLER
 #define __ALTERA_AVALON_ONCHIP_MEMORY2
 #define __ALTERA_AVALON_PIO
+#define __ALTERA_AVALON_TIMER
 #define __ALTERA_NIOS2_QSYS
 #define __ALTERA_UP_AVALON_CHARACTER_LCD
+
+
+/*
+ * HAL_system_timer configuration
+ *
+ */
+
+#define ALT_MODULE_CLASS_HAL_system_timer altera_avalon_timer
+#define HAL_SYSTEM_TIMER_ALWAYS_RUN 0
+#define HAL_SYSTEM_TIMER_BASE 0x2000
+#define HAL_SYSTEM_TIMER_COUNTER_SIZE 32
+#define HAL_SYSTEM_TIMER_FIXED_PERIOD 0
+#define HAL_SYSTEM_TIMER_FREQ 50000000u
+#define HAL_SYSTEM_TIMER_IRQ 0
+#define HAL_SYSTEM_TIMER_IRQ_INTERRUPT_CONTROLLER_ID 0
+#define HAL_SYSTEM_TIMER_LOAD_VALUE 49999ull
+#define HAL_SYSTEM_TIMER_MULT 0.0010
+#define HAL_SYSTEM_TIMER_NAME "/dev/HAL_system_timer"
+#define HAL_SYSTEM_TIMER_PERIOD 1
+#define HAL_SYSTEM_TIMER_PERIOD_UNITS "ms"
+#define HAL_SYSTEM_TIMER_RESET_OUTPUT 0
+#define HAL_SYSTEM_TIMER_SNAPSHOT 1
+#define HAL_SYSTEM_TIMER_SPAN 32
+#define HAL_SYSTEM_TIMER_TICKS_PER_SEC 1000u
+#define HAL_SYSTEM_TIMER_TIMEOUT_PULSE_OUTPUT 0
+#define HAL_SYSTEM_TIMER_TYPE "altera_avalon_timer"
 
 
 /*
@@ -137,7 +164,7 @@
  */
 
 #define ALT_MODULE_CLASS_LEDs altera_avalon_pio
-#define LEDS_BASE 0x2010
+#define LEDS_BASE 0x2070
 #define LEDS_BIT_CLEARING_EDGE_REGISTER 0
 #define LEDS_BIT_MODIFYING_OUTPUT_REGISTER 0
 #define LEDS_CAPTURE 0
@@ -174,19 +201,19 @@
 #define ALT_NUM_INTERNAL_INTERRUPT_CONTROLLERS 1
 #define ALT_NUM_INTERRUPT_CONTROLLERS 1
 #define ALT_STDERR "/dev/jtag_uart_0"
-#define ALT_STDERR_BASE 0x2020
+#define ALT_STDERR_BASE 0x2080
 #define ALT_STDERR_DEV jtag_uart_0
 #define ALT_STDERR_IS_JTAG_UART
 #define ALT_STDERR_PRESENT
 #define ALT_STDERR_TYPE "altera_avalon_jtag_uart"
 #define ALT_STDIN "/dev/jtag_uart_0"
-#define ALT_STDIN_BASE 0x2020
+#define ALT_STDIN_BASE 0x2080
 #define ALT_STDIN_DEV jtag_uart_0
 #define ALT_STDIN_IS_JTAG_UART
 #define ALT_STDIN_PRESENT
 #define ALT_STDIN_TYPE "altera_avalon_jtag_uart"
 #define ALT_STDOUT "/dev/jtag_uart_0"
-#define ALT_STDOUT_BASE 0x2020
+#define ALT_STDOUT_BASE 0x2080
 #define ALT_STDOUT_DEV jtag_uart_0
 #define ALT_STDOUT_IS_JTAG_UART
 #define ALT_STDOUT_PRESENT
@@ -200,7 +227,7 @@
  */
 
 #define ALT_MODULE_CLASS_character_lcd_0 altera_up_avalon_character_lcd
-#define CHARACTER_LCD_0_BASE 0x2028
+#define CHARACTER_LCD_0_BASE 0x2088
 #define CHARACTER_LCD_0_IRQ -1
 #define CHARACTER_LCD_0_IRQ_INTERRUPT_CONTROLLER_ID -1
 #define CHARACTER_LCD_0_NAME "/dev/character_lcd_0"
@@ -214,8 +241,34 @@
  */
 
 #define ALT_MAX_FD 32
-#define ALT_SYS_CLK none
-#define ALT_TIMESTAMP_CLK none
+#define ALT_SYS_CLK HAL_SYSTEM_TIMER
+#define ALT_TIMESTAMP_CLK TIMESTAMP_TIMER
+
+
+/*
+ * hardware_timer configuration
+ *
+ */
+
+#define ALT_MODULE_CLASS_hardware_timer altera_avalon_timer
+#define HARDWARE_TIMER_ALWAYS_RUN 0
+#define HARDWARE_TIMER_BASE 0x2040
+#define HARDWARE_TIMER_COUNTER_SIZE 32
+#define HARDWARE_TIMER_FIXED_PERIOD 0
+#define HARDWARE_TIMER_FREQ 50000000u
+#define HARDWARE_TIMER_IRQ 2
+#define HARDWARE_TIMER_IRQ_INTERRUPT_CONTROLLER_ID 0
+#define HARDWARE_TIMER_LOAD_VALUE 49999ull
+#define HARDWARE_TIMER_MULT 0.0010
+#define HARDWARE_TIMER_NAME "/dev/hardware_timer"
+#define HARDWARE_TIMER_PERIOD 1
+#define HARDWARE_TIMER_PERIOD_UNITS "ms"
+#define HARDWARE_TIMER_RESET_OUTPUT 0
+#define HARDWARE_TIMER_SNAPSHOT 1
+#define HARDWARE_TIMER_SPAN 32
+#define HARDWARE_TIMER_TICKS_PER_SEC 1000u
+#define HARDWARE_TIMER_TIMEOUT_PULSE_OUTPUT 0
+#define HARDWARE_TIMER_TYPE "altera_avalon_timer"
 
 
 /*
@@ -224,7 +277,7 @@
  */
 
 #define ALT_MODULE_CLASS_jtag_uart_0 altera_avalon_jtag_uart
-#define JTAG_UART_0_BASE 0x2020
+#define JTAG_UART_0_BASE 0x2080
 #define JTAG_UART_0_IRQ 5
 #define JTAG_UART_0_IRQ_INTERRUPT_CONTROLLER_ID 0
 #define JTAG_UART_0_NAME "/dev/jtag_uart_0"
@@ -310,7 +363,7 @@
  */
 
 #define ALT_MODULE_CLASS_switches altera_avalon_pio
-#define SWITCHES_BASE 0x2000
+#define SWITCHES_BASE 0x2060
 #define SWITCHES_BIT_CLEARING_EDGE_REGISTER 0
 #define SWITCHES_BIT_MODIFYING_OUTPUT_REGISTER 0
 #define SWITCHES_CAPTURE 0
@@ -329,5 +382,31 @@
 #define SWITCHES_RESET_VALUE 0x0
 #define SWITCHES_SPAN 16
 #define SWITCHES_TYPE "altera_avalon_pio"
+
+
+/*
+ * timestamp_timer configuration
+ *
+ */
+
+#define ALT_MODULE_CLASS_timestamp_timer altera_avalon_timer
+#define TIMESTAMP_TIMER_ALWAYS_RUN 0
+#define TIMESTAMP_TIMER_BASE 0x2020
+#define TIMESTAMP_TIMER_COUNTER_SIZE 32
+#define TIMESTAMP_TIMER_FIXED_PERIOD 0
+#define TIMESTAMP_TIMER_FREQ 50000000u
+#define TIMESTAMP_TIMER_IRQ 1
+#define TIMESTAMP_TIMER_IRQ_INTERRUPT_CONTROLLER_ID 0
+#define TIMESTAMP_TIMER_LOAD_VALUE 49999ull
+#define TIMESTAMP_TIMER_MULT 0.0010
+#define TIMESTAMP_TIMER_NAME "/dev/timestamp_timer"
+#define TIMESTAMP_TIMER_PERIOD 1
+#define TIMESTAMP_TIMER_PERIOD_UNITS "ms"
+#define TIMESTAMP_TIMER_RESET_OUTPUT 0
+#define TIMESTAMP_TIMER_SNAPSHOT 1
+#define TIMESTAMP_TIMER_SPAN 32
+#define TIMESTAMP_TIMER_TICKS_PER_SEC 1000u
+#define TIMESTAMP_TIMER_TIMEOUT_PULSE_OUTPUT 0
+#define TIMESTAMP_TIMER_TYPE "altera_avalon_timer"
 
 #endif /* __SYSTEM_H_ */

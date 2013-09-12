@@ -1,12 +1,12 @@
-Analysis & Synthesis Status : Successful - Tue Sep 10 18:17:34 2013
+Analysis & Synthesis Status : Successful - Thu Sep 12 15:49:03 2013
 Quartus II 32-bit Version : 12.0 Build 263 08/02/2012 SP 2 SJ Web Edition
 Revision Name : LaserSharknado
 Top-level Entity Name : LaserSharknado
 Family : Cyclone II
-Total logic elements : 3,500
-    Total combinational functions : 3,123
-    Dedicated logic registers : 2,086
-Total registers : 2086
+Total logic elements : 4,181
+    Total combinational functions : 3,601
+    Dedicated logic registers : 2,521
+Total registers : 2521
 Total pins : 69
 Total virtual pins : 0
 Total memory bits : 79,488

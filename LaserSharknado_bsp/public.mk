@@ -87,11 +87,11 @@ ACDS_VERSION := 12.0sp2
 
 # Quartus Generated JDI File. Required for resolving node instance ID's with 
 # design component names. 
-JDI_FILE := C:/Users/jorde_000/Documents/GitHub/LaserSharknado/HDL/LaserSharknado.jdi
+JDI_FILE := $(ABS_BSP_ROOT_DIR)/../HDL/LaserSharknado.jdi
 
 # Qsys--generated SOPCINFO file. Required for resolving node instance ID's with 
 # design component names. 
-SOPCINFO_FILE := C:/Users/jorde_000/Documents/GitHub/LaserSharknado/HDL/nios_system.sopcinfo
+SOPCINFO_FILE := $(ABS_BSP_ROOT_DIR)/../HDL/nios_system.sopcinfo
 
 # Big-Endian operation. 
 # setting BIG_ENDIAN is false

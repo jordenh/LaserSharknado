@@ -2,7 +2,7 @@ set_global_assignment -entity "nios_system" -library "lib_nios_system" -name IP_
 set_global_assignment -entity "nios_system" -library "lib_nios_system" -name IP_TOOL_VERSION "12.0sp2"
 set_global_assignment -entity "nios_system" -library "lib_nios_system" -name IP_TOOL_ENV "qsys"
 set_global_assignment -library "lib_nios_system" -name MISC_FILE [file join $::quartus(qip_path) ../../nios_system.sopcinfo]
-set_instance_assignment -entity "nios_system" -library "lib_nios_system" -name SLD_INFO "QSYS_NAME nios_system HAS_SOPCINFO 1 GENERATION_ID 1378861803"
+set_instance_assignment -entity "nios_system" -library "lib_nios_system" -name SLD_INFO "QSYS_NAME nios_system HAS_SOPCINFO 1 GENERATION_ID 1379025985"
 set_global_assignment -name SYNTHESIS_ONLY_QIP ON
 set_global_assignment -library "lib_nios_system" -name MISC_FILE [file join $::quartus(qip_path) ../../nios_system.qsys]
 
@@ -35,6 +35,7 @@ set_global_assignment -library "lib_nios_system" -name SYSTEMVERILOG_FILE [file 
 set_global_assignment -library "lib_nios_system" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) submodules/altera_merlin_master_agent.sv]
 set_global_assignment -library "lib_nios_system" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) submodules/altera_merlin_slave_translator.sv]
 set_global_assignment -library "lib_nios_system" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) submodules/altera_merlin_master_translator.sv]
+set_global_assignment -library "lib_nios_system" -name VERILOG_FILE [file join $::quartus(qip_path) submodules/nios_system_HAL_system_timer.v]
 set_global_assignment -library "lib_nios_system" -name VERILOG_FILE [file join $::quartus(qip_path) submodules/nios_system_clocks.v]
 set_global_assignment -library "lib_nios_system" -name VERILOG_FILE [file join $::quartus(qip_path) submodules/altera_up_character_lcd_communication.v]
 set_global_assignment -library "lib_nios_system" -name VERILOG_FILE [file join $::quartus(qip_path) submodules/altera_up_character_lcd_initialization.v]
@@ -131,6 +132,9 @@ set_global_assignment -entity "altera_merlin_slave_translator" -library "lib_nio
 set_global_assignment -entity "altera_merlin_master_translator" -library "lib_nios_system" -name IP_TOOL_NAME "altera_merlin_master_translator"
 set_global_assignment -entity "altera_merlin_master_translator" -library "lib_nios_system" -name IP_TOOL_VERSION "12.0"
 set_global_assignment -entity "altera_merlin_master_translator" -library "lib_nios_system" -name IP_TOOL_ENV "qsys"
+set_global_assignment -entity "nios_system_HAL_system_timer" -library "lib_nios_system" -name IP_TOOL_NAME "altera_avalon_timer"
+set_global_assignment -entity "nios_system_HAL_system_timer" -library "lib_nios_system" -name IP_TOOL_VERSION "12.0"
+set_global_assignment -entity "nios_system_HAL_system_timer" -library "lib_nios_system" -name IP_TOOL_ENV "qsys"
 set_global_assignment -entity "nios_system_sdram_0" -library "lib_nios_system" -name IP_TOOL_NAME "altera_avalon_new_sdram_controller"
 set_global_assignment -entity "nios_system_sdram_0" -library "lib_nios_system" -name IP_TOOL_VERSION "12.0"
 set_global_assignment -entity "nios_system_sdram_0" -library "lib_nios_system" -name IP_TOOL_ENV "qsys"

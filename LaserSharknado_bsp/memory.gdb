@@ -1,9 +1,9 @@
 # memory.gdb - GDB memory region definitions
 #
 # Machine generated for CPU 'nios2_qsys_0' in SOPC Builder design 'nios_system'
-# SOPC Builder design path: C:/Users/jorde_000/Documents/GitHub/LaserSharknado/HDL/nios_system.sopcinfo
+# SOPC Builder design path: ../HDL/nios_system.sopcinfo
 #
-# Generated: Tue Sep 10 18:23:48 PDT 2013
+# Generated: Thu Sep 12 15:10:02 PDT 2013
 
 # DO NOT MODIFY THIS FILE
 #

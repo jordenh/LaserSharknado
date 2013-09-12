@@ -35,19 +35,19 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING
   8 .debug_pubnames 00001769  00000000  00000000  00011938  2**0
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_info   00025745  00000000  00000000  000130a1  2**0
+  9 .debug_info   00025746  00000000  00000000  000130a1  2**0
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_abbrev 00008884  00000000  00000000  000387e6  2**0
+ 10 .debug_abbrev 00008884  00000000  00000000  000387e7  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_line   00015656  00000000  00000000  0004106a  2**0
+ 11 .debug_line   00015657  00000000  00000000  0004106b  2**0
                   CONTENTS, READONLY, DEBUGGING
- 12 .debug_frame  00001c00  00000000  00000000  000566c0  2**2
+ 12 .debug_frame  00001c00  00000000  00000000  000566c4  2**2
                   CONTENTS, READONLY, DEBUGGING
- 13 .debug_str    000022bd  00000000  00000000  000582c0  2**0
+ 13 .debug_str    000022bd  00000000  00000000  000582c4  2**0
                   CONTENTS, READONLY, DEBUGGING
- 14 .debug_loc    0000c50e  00000000  00000000  0005a57d  2**0
+ 14 .debug_loc    0000c50e  00000000  00000000  0005a581  2**0
                   CONTENTS, READONLY, DEBUGGING
- 15 .debug_alt_sim_info 00000050  00000000  00000000  00066a8c  2**2
+ 15 .debug_alt_sim_info 00000050  00000000  00000000  00066a90  2**2
                   CONTENTS, READONLY, DEBUGGING
  16 .debug_ranges 00000a48  00000000  00000000  00066ae0  2**3
                   CONTENTS, READONLY, DEBUGGING
@@ -1413,8 +1413,8 @@ int main()
  10007d8:	10800003 	ldbu	r2,0(r2)
  10007dc:	18800005 	stb	r2,0(r3)
 
-	timer_test();
- 10007e0:	10007fc0 	call	10007fc <timer_test>
+	timeMatrixMultiply();
+ 10007e0:	100059c0 	call	100059c <timeMatrixMultiply>
 
 	return 0;
  10007e4:	0005883a 	mov	r2,zero

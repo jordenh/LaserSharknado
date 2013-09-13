@@ -1,7 +1,6 @@
 <?xml version="1.0" ?>
 <LOG_ROOT>
 	<PROJECT NAME="LaserSharknado">
-		<CBX_INST_ENTRY INSTANCE_NAME="|LaserSharknado|nios_system:NiosII|nios_system_onchip_memory2_0:onchip_memory2_0|altsyncram:the_altsyncram" CBX_FILE_NAME="altsyncram_bcd1.tdf"/>
 		<CBX_INST_ENTRY INSTANCE_NAME="|LaserSharknado|nios_system:NiosII|nios_system_jtag_uart_0:jtag_uart_0|nios_system_jtag_uart_0_scfifo_w:the_nios_system_jtag_uart_0_scfifo_w|scfifo:wfifo" CBX_FILE_NAME="scfifo_1n21.tdf"/>
 		<CBX_INST_ENTRY INSTANCE_NAME="|LaserSharknado|nios_system:NiosII|nios_system_nios2_qsys_0:nios2_qsys_0|lpm_add_sub:Add17" CBX_FILE_NAME="add_sub_8ri.tdf"/>
 		<CBX_INST_ENTRY INSTANCE_NAME="|LaserSharknado|nios_system:NiosII|nios_system_nios2_qsys_0:nios2_qsys_0|nios_system_nios2_qsys_0_bht_module:nios_system_nios2_qsys_0_bht|altsyncram:the_altsyncram" CBX_FILE_NAME="altsyncram_moh1.tdf"/>

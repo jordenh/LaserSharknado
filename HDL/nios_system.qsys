@@ -16,7 +16,7 @@
    {
       datum _sortIndex
       {
-         value = "9";
+         value = "8";
          type = "int";
       }
       datum sopceditor_expanded
@@ -29,7 +29,7 @@
    {
       datum _sortIndex
       {
-         value = "4";
+         value = "3";
          type = "int";
       }
    }
@@ -37,7 +37,7 @@
    {
       datum baseAddress
       {
-         value = "8320";
+         value = "16781456";
          type = "long";
       }
    }
@@ -45,7 +45,7 @@
    {
       datum baseAddress
       {
-         value = "8328";
+         value = "16781464";
          type = "long";
       }
    }
@@ -53,7 +53,7 @@
    {
       datum _sortIndex
       {
-         value = "7";
+         value = "6";
          type = "int";
       }
    }
@@ -77,7 +77,7 @@
    {
       datum _sortIndex
       {
-         value = "8";
+         value = "7";
          type = "int";
       }
    }
@@ -85,7 +85,7 @@
    {
       datum _sortIndex
       {
-         value = "11";
+         value = "10";
          type = "int";
       }
    }
@@ -93,7 +93,7 @@
    {
       datum baseAddress
       {
-         value = "6144";
+         value = "16779264";
          type = "long";
       }
    }
@@ -101,7 +101,15 @@
    {
       datum _sortIndex
       {
-         value = "5";
+         value = "4";
+         type = "int";
+      }
+   }
+   element keys
+   {
+      datum _sortIndex
+      {
+         value = "11";
          type = "int";
       }
    }
@@ -113,35 +121,37 @@
          type = "int";
       }
    }
-   element onchip_memory2_0
-   {
-      datum _sortIndex
-      {
-         value = "2";
-         type = "int";
-      }
-   }
-   element switches.s1
-   {
-      datum baseAddress
-      {
-         value = "8288";
-         type = "long";
-      }
-   }
-   element onchip_memory2_0.s1
+   element keys.s1
    {
       datum _lockedAddress
       {
          value = "1";
          type = "boolean";
       }
+      datum baseAddress
+      {
+         value = "16781440";
+         type = "long";
+      }
    }
-   element sdram_0.s1
+   element HAL_system_timer.s1
    {
       datum baseAddress
       {
-         value = "16777216";
+         value = "16781312";
+         type = "long";
+      }
+   }
+   element LEDs.s1
+   {
+      datum _lockedAddress
+      {
+         value = "1";
+         type = "boolean";
+      }
+      datum baseAddress
+      {
+         value = "16781424";
          type = "long";
       }
    }
@@ -154,23 +164,20 @@
       }
       datum baseAddress
       {
-         value = "8256";
+         value = "16781376";
          type = "long";
       }
    }
-   element HAL_system_timer.s1
+   element switches.s1
    {
-      datum baseAddress
+      datum _lockedAddress
       {
-         value = "8192";
-         type = "long";
+         value = "1";
+         type = "boolean";
       }
-   }
-   element LEDs.s1
-   {
       datum baseAddress
       {
-         value = "8304";
+         value = "16781408";
          type = "long";
       }
    }
@@ -178,7 +185,15 @@
    {
       datum baseAddress
       {
-         value = "8224";
+         value = "16781344";
+         type = "long";
+      }
+   }
+   element sdram_0.s1
+   {
+      datum baseAddress
+      {
+         value = "8388608";
          type = "long";
       }
    }
@@ -186,7 +201,7 @@
    {
       datum _sortIndex
       {
-         value = "6";
+         value = "5";
          type = "int";
       }
       datum megawizard_uipreferences
@@ -199,7 +214,7 @@
    {
       datum _sortIndex
       {
-         value = "3";
+         value = "2";
          type = "int";
       }
    }
@@ -207,7 +222,7 @@
    {
       datum _sortIndex
       {
-         value = "10";
+         value = "9";
          type = "int";
       }
    }
@@ -226,7 +241,7 @@
  <parameter name="projectName" value="LaserSharknado.qpf" />
  <parameter name="sopcBorderPoints" value="false" />
  <parameter name="systemHash" value="1" />
- <parameter name="timeStamp" value="1379031420771" />
+ <parameter name="timeStamp" value="1379034203994" />
  <parameter name="useTestBenchNamingPattern" value="false" />
  <instanceScript></instanceScript>
  <interface name="clk" internal="clk_0.clk_in" type="clock" dir="end" />
@@ -248,6 +263,11 @@
    dir="end" />
  <interface name="sdram_wire" internal="sdram_0.wire" type="conduit" dir="end" />
  <interface name="sdram_clk" internal="clocks.sdram_clk" type="clock" dir="start" />
+ <interface
+   name="keys"
+   internal="keys.external_connection"
+   type="conduit"
+   dir="end" />
  <module kind="clock_source" version="12.0" enabled="1" name="clk_0">
   <parameter name="clockFrequency" value="50000000" />
   <parameter name="clockFrequencyKnown" value="true" />
@@ -346,8 +366,8 @@
   <parameter name="tightlyCoupledInstructionMaster1AddrWidth" value="1" />
   <parameter name="tightlyCoupledInstructionMaster2AddrWidth" value="1" />
   <parameter name="tightlyCoupledInstructionMaster3AddrWidth" value="1" />
-  <parameter name="instSlaveMapParam"><![CDATA[<address-map><slave name='onchip_memory2_0.s1' start='0x0' end='0x1000' /><slave name='nios2_qsys_0.jtag_debug_module' start='0x1800' end='0x2000' /><slave name='sdram_0.s1' start='0x1000000' end='0x1800000' /></address-map>]]></parameter>
-  <parameter name="dataSlaveMapParam"><![CDATA[<address-map><slave name='onchip_memory2_0.s1' start='0x0' end='0x1000' /><slave name='nios2_qsys_0.jtag_debug_module' start='0x1800' end='0x2000' /><slave name='HAL_system_timer.s1' start='0x2000' end='0x2020' /><slave name='timestamp_timer.s1' start='0x2020' end='0x2040' /><slave name='hardware_timer.s1' start='0x2040' end='0x2060' /><slave name='switches.s1' start='0x2060' end='0x2070' /><slave name='LEDs.s1' start='0x2070' end='0x2080' /><slave name='jtag_uart_0.avalon_jtag_slave' start='0x2080' end='0x2088' /><slave name='character_lcd_0.avalon_lcd_slave' start='0x2088' end='0x208A' /><slave name='sdram_0.s1' start='0x1000000' end='0x1800000' /></address-map>]]></parameter>
+  <parameter name="instSlaveMapParam"><![CDATA[<address-map><slave name='sdram_0.s1' start='0x800000' end='0x1000000' /><slave name='nios2_qsys_0.jtag_debug_module' start='0x1000800' end='0x1001000' /></address-map>]]></parameter>
+  <parameter name="dataSlaveMapParam"><![CDATA[<address-map><slave name='sdram_0.s1' start='0x800000' end='0x1000000' /><slave name='nios2_qsys_0.jtag_debug_module' start='0x1000800' end='0x1001000' /><slave name='HAL_system_timer.s1' start='0x1001000' end='0x1001020' /><slave name='timestamp_timer.s1' start='0x1001020' end='0x1001040' /><slave name='hardware_timer.s1' start='0x1001040' end='0x1001060' /><slave name='switches.s1' start='0x1001060' end='0x1001070' /><slave name='LEDs.s1' start='0x1001070' end='0x1001080' /><slave name='keys.s1' start='0x1001080' end='0x1001090' /><slave name='jtag_uart_0.avalon_jtag_slave' start='0x1001090' end='0x1001098' /><slave name='character_lcd_0.avalon_lcd_slave' start='0x1001098' end='0x100109A' /></address-map>]]></parameter>
   <parameter name="clockFrequency" value="50000000" />
   <parameter name="deviceFamilyName" value="Cyclone II" />
   <parameter name="internalIrqMaskSystemInfo" value="39" />
@@ -361,31 +381,6 @@
   <parameter name="tightlyCoupledInstructionMaster1MapParam" value="" />
   <parameter name="tightlyCoupledInstructionMaster2MapParam" value="" />
   <parameter name="tightlyCoupledInstructionMaster3MapParam" value="" />
- </module>
- <module
-   kind="altera_avalon_onchip_memory2"
-   version="12.0"
-   enabled="1"
-   name="onchip_memory2_0">
-  <parameter name="allowInSystemMemoryContentEditor" value="false" />
-  <parameter name="autoInitializationFileName">nios_system_onchip_memory2_0</parameter>
-  <parameter name="blockType" value="AUTO" />
-  <parameter name="dataWidth" value="32" />
-  <parameter name="deviceFamily" value="Cyclone II" />
-  <parameter name="dualPort" value="false" />
-  <parameter name="initMemContent" value="true" />
-  <parameter name="initializationFileName" value="onchip_memory2_0" />
-  <parameter name="instanceID" value="NONE" />
-  <parameter name="memorySize" value="4096" />
-  <parameter name="readDuringWriteMode" value="DONT_CARE" />
-  <parameter name="simAllowMRAMContentsFile" value="false" />
-  <parameter name="simMemInitOnlyFilename" value="0" />
-  <parameter name="singleClockOperation" value="false" />
-  <parameter name="slave1Latency" value="1" />
-  <parameter name="slave2Latency" value="1" />
-  <parameter name="useNonDefaultInitFile" value="false" />
-  <parameter name="useShallowMemBlocks" value="false" />
-  <parameter name="writable" value="true" />
  </module>
  <module kind="altera_avalon_pio" version="12.0" enabled="1" name="switches">
   <parameter name="bitClearingEdgeCapReg" value="false" />
@@ -528,13 +523,27 @@
   <parameter name="timeoutPulseOutput" value="false" />
   <parameter name="timerPreset" value="FULL_FEATURED" />
  </module>
+ <module kind="altera_avalon_pio" version="12.0" enabled="1" name="keys">
+  <parameter name="bitClearingEdgeCapReg" value="false" />
+  <parameter name="bitModifyingOutReg" value="false" />
+  <parameter name="captureEdge" value="false" />
+  <parameter name="clockRate" value="50000000" />
+  <parameter name="direction" value="Input" />
+  <parameter name="edgeType" value="RISING" />
+  <parameter name="generateIRQ" value="false" />
+  <parameter name="irqType" value="LEVEL" />
+  <parameter name="resetValue" value="0" />
+  <parameter name="simDoTestBenchWiring" value="false" />
+  <parameter name="simDrivenValue" value="0" />
+  <parameter name="width" value="4" />
+ </module>
  <connection
    kind="avalon"
    version="12.0"
    start="nios2_qsys_0.instruction_master"
    end="nios2_qsys_0.jtag_debug_module">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x1800" />
+  <parameter name="baseAddress" value="0x01000800" />
  </connection>
  <connection
    kind="avalon"
@@ -542,7 +551,7 @@
    start="nios2_qsys_0.data_master"
    end="nios2_qsys_0.jtag_debug_module">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x1800" />
+  <parameter name="baseAddress" value="0x01000800" />
  </connection>
  <connection
    kind="clock"
@@ -557,11 +566,6 @@
    end="jtag_uart_0.clk" />
  <connection kind="clock" version="12.0" start="clocks.sys_clk" end="LEDs.clk" />
  <connection kind="clock" version="12.0" start="clocks.sys_clk" end="switches.clk" />
- <connection
-   kind="clock"
-   version="12.0"
-   start="clocks.sys_clk"
-   end="onchip_memory2_0.clk1" />
  <connection
    kind="clock"
    version="12.0"
@@ -602,11 +606,6 @@
    kind="reset"
    version="12.0"
    start="clk_0.clk_reset"
-   end="onchip_memory2_0.reset1" />
- <connection
-   kind="reset"
-   version="12.0"
-   start="clk_0.clk_reset"
    end="nios2_qsys_0.reset_n" />
  <connection
    kind="reset"
@@ -619,34 +618,13 @@
    start="nios2_qsys_0.data_master"
    end="character_lcd_0.avalon_lcd_slave">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x2088" />
+  <parameter name="baseAddress" value="0x01001098" />
  </connection>
  <connection
    kind="reset"
    version="12.0"
    start="nios2_qsys_0.jtag_debug_module_reset"
    end="nios2_qsys_0.reset_n" />
- <connection
-   kind="reset"
-   version="12.0"
-   start="nios2_qsys_0.jtag_debug_module_reset"
-   end="onchip_memory2_0.reset1" />
- <connection
-   kind="avalon"
-   version="12.0"
-   start="nios2_qsys_0.instruction_master"
-   end="onchip_memory2_0.s1">
-  <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x0000" />
- </connection>
- <connection
-   kind="avalon"
-   version="12.0"
-   start="nios2_qsys_0.data_master"
-   end="onchip_memory2_0.s1">
-  <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x0000" />
- </connection>
  <connection
    kind="reset"
    version="12.0"
@@ -658,7 +636,7 @@
    start="nios2_qsys_0.data_master"
    end="switches.s1">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x2060" />
+  <parameter name="baseAddress" value="0x01001060" />
  </connection>
  <connection
    kind="reset"
@@ -671,7 +649,7 @@
    start="nios2_qsys_0.data_master"
    end="LEDs.s1">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x2070" />
+  <parameter name="baseAddress" value="0x01001070" />
  </connection>
  <connection
    kind="avalon"
@@ -679,7 +657,7 @@
    start="nios2_qsys_0.data_master"
    end="jtag_uart_0.avalon_jtag_slave">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x2080" />
+  <parameter name="baseAddress" value="0x01001090" />
  </connection>
  <connection
    kind="reset"
@@ -692,7 +670,7 @@
    start="nios2_qsys_0.instruction_master"
    end="sdram_0.s1">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x01000000" />
+  <parameter name="baseAddress" value="0x00800000" />
  </connection>
  <connection
    kind="avalon"
@@ -700,7 +678,7 @@
    start="nios2_qsys_0.data_master"
    end="sdram_0.s1">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x01000000" />
+  <parameter name="baseAddress" value="0x00800000" />
  </connection>
  <connection
    kind="interrupt"
@@ -720,7 +698,7 @@
    start="nios2_qsys_0.data_master"
    end="HAL_system_timer.s1">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x2000" />
+  <parameter name="baseAddress" value="0x01001000" />
  </connection>
  <connection
    kind="clock"
@@ -738,7 +716,7 @@
    start="nios2_qsys_0.data_master"
    end="timestamp_timer.s1">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x2020" />
+  <parameter name="baseAddress" value="0x01001020" />
  </connection>
  <connection
    kind="clock"
@@ -761,7 +739,7 @@
    start="nios2_qsys_0.data_master"
    end="hardware_timer.s1">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x2040" />
+  <parameter name="baseAddress" value="0x01001040" />
  </connection>
  <connection
    kind="interrupt"
@@ -784,4 +762,34 @@
    end="hardware_timer.irq">
   <parameter name="irqNumber" value="2" />
  </connection>
+ <connection kind="clock" version="12.0" start="clocks.sys_clk" end="keys.clk" />
+ <connection
+   kind="reset"
+   version="12.0"
+   start="nios2_qsys_0.jtag_debug_module_reset"
+   end="keys.reset" />
+ <connection
+   kind="avalon"
+   version="12.0"
+   start="nios2_qsys_0.data_master"
+   end="keys.s1">
+  <parameter name="arbitrationPriority" value="1" />
+  <parameter name="baseAddress" value="0x01001080" />
+ </connection>
+ <connection
+   kind="reset"
+   version="12.0"
+   start="clk_0.clk_reset"
+   end="HAL_system_timer.reset" />
+ <connection
+   kind="reset"
+   version="12.0"
+   start="clk_0.clk_reset"
+   end="timestamp_timer.reset" />
+ <connection
+   kind="reset"
+   version="12.0"
+   start="clk_0.clk_reset"
+   end="hardware_timer.reset" />
+ <connection kind="reset" version="12.0" start="clk_0.clk_reset" end="keys.reset" />
 </system>

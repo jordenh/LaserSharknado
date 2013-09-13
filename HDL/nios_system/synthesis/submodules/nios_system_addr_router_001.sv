@@ -31,8 +31,8 @@
 
 module nios_system_addr_router_001_default_decode
   #(
-     parameter DEFAULT_CHANNEL = 2,
-               DEFAULT_DESTID = 2 
+     parameter DEFAULT_CHANNEL = 1,
+               DEFAULT_DESTID = 1 
    )
   (output [87 - 84 : 0] default_destination_id,
    output [10-1 : 0] default_src_channel
@@ -102,23 +102,23 @@ module nios_system_addr_router_001
     // Figure out the number of bits to mask off for each slave span
     // during address decoding
     // -------------------------------------------------------
-    localparam PAD0 = log2ceil(32'h1000 - 32'h0);
-    localparam PAD1 = log2ceil(32'h2000 - 32'h1800);
-    localparam PAD2 = log2ceil(32'h2020 - 32'h2000);
-    localparam PAD3 = log2ceil(32'h2040 - 32'h2020);
-    localparam PAD4 = log2ceil(32'h2060 - 32'h2040);
-    localparam PAD5 = log2ceil(32'h2070 - 32'h2060);
-    localparam PAD6 = log2ceil(32'h2080 - 32'h2070);
-    localparam PAD7 = log2ceil(32'h2088 - 32'h2080);
-    localparam PAD8 = log2ceil(32'h208a - 32'h2088);
-    localparam PAD9 = log2ceil(32'h1800000 - 32'h1000000);
+    localparam PAD0 = log2ceil(32'h1000000 - 32'h800000);
+    localparam PAD1 = log2ceil(32'h1001000 - 32'h1000800);
+    localparam PAD2 = log2ceil(32'h1001020 - 32'h1001000);
+    localparam PAD3 = log2ceil(32'h1001040 - 32'h1001020);
+    localparam PAD4 = log2ceil(32'h1001060 - 32'h1001040);
+    localparam PAD5 = log2ceil(32'h1001070 - 32'h1001060);
+    localparam PAD6 = log2ceil(32'h1001080 - 32'h1001070);
+    localparam PAD7 = log2ceil(32'h1001090 - 32'h1001080);
+    localparam PAD8 = log2ceil(32'h1001098 - 32'h1001090);
+    localparam PAD9 = log2ceil(32'h100109a - 32'h1001098);
 
     // -------------------------------------------------------
     // Work out which address bits are significant based on the
     // address range of the slaves. If the required width is too
     // large or too small, we use the address field width instead.
     // -------------------------------------------------------
-    localparam ADDR_RANGE = 32'h1800000;
+    localparam ADDR_RANGE = 32'h100109a;
     localparam RANGE_ADDR_WIDTH = log2ceil(ADDR_RANGE);
     localparam OPTIMIZED_ADDR_H = (RANGE_ADDR_WIDTH > PKT_ADDR_W) ||
                                   (RANGE_ADDR_WIDTH == 0) ?
@@ -157,62 +157,62 @@ module nios_system_addr_router_001
         // Sets the channel and destination ID based on the address
         // --------------------------------------------------
 
-        // ( 0x0 .. 0x1000 )
-        if ( {address[RG:PAD0],{PAD0{1'b0}}} == 'h0 ) begin
+        // ( 0x800000 .. 0x1000000 )
+        if ( {address[RG:PAD0],{PAD0{1'b0}}} == 'h800000 ) begin
             src_channel = 10'b0000000010;
             src_data[PKT_DEST_ID_H:PKT_DEST_ID_L] = 1;
         end
 
-        // ( 0x1800 .. 0x2000 )
-        if ( {address[RG:PAD1],{PAD1{1'b0}}} == 'h1800 ) begin
+        // ( 0x1000800 .. 0x1001000 )
+        if ( {address[RG:PAD1],{PAD1{1'b0}}} == 'h1000800 ) begin
             src_channel = 10'b0000000001;
             src_data[PKT_DEST_ID_H:PKT_DEST_ID_L] = 0;
         end
 
-        // ( 0x2000 .. 0x2020 )
-        if ( {address[RG:PAD2],{PAD2{1'b0}}} == 'h2000 ) begin
-            src_channel = 10'b0010000000;
-            src_data[PKT_DEST_ID_H:PKT_DEST_ID_L] = 7;
-        end
-
-        // ( 0x2020 .. 0x2040 )
-        if ( {address[RG:PAD3],{PAD3{1'b0}}} == 'h2020 ) begin
-            src_channel = 10'b0100000000;
-            src_data[PKT_DEST_ID_H:PKT_DEST_ID_L] = 8;
-        end
-
-        // ( 0x2040 .. 0x2060 )
-        if ( {address[RG:PAD4],{PAD4{1'b0}}} == 'h2040 ) begin
-            src_channel = 10'b1000000000;
-            src_data[PKT_DEST_ID_H:PKT_DEST_ID_L] = 9;
-        end
-
-        // ( 0x2060 .. 0x2070 )
-        if ( {address[RG:PAD5],{PAD5{1'b0}}} == 'h2060 ) begin
-            src_channel = 10'b0000010000;
-            src_data[PKT_DEST_ID_H:PKT_DEST_ID_L] = 4;
-        end
-
-        // ( 0x2070 .. 0x2080 )
-        if ( {address[RG:PAD6],{PAD6{1'b0}}} == 'h2070 ) begin
-            src_channel = 10'b0000100000;
-            src_data[PKT_DEST_ID_H:PKT_DEST_ID_L] = 5;
-        end
-
-        // ( 0x2080 .. 0x2088 )
-        if ( {address[RG:PAD7],{PAD7{1'b0}}} == 'h2080 ) begin
+        // ( 0x1001000 .. 0x1001020 )
+        if ( {address[RG:PAD2],{PAD2{1'b0}}} == 'h1001000 ) begin
             src_channel = 10'b0001000000;
             src_data[PKT_DEST_ID_H:PKT_DEST_ID_L] = 6;
         end
 
-        // ( 0x2088 .. 0x208a )
-        if ( {address[RG:PAD8],{PAD8{1'b0}}} == 'h2088 ) begin
+        // ( 0x1001020 .. 0x1001040 )
+        if ( {address[RG:PAD3],{PAD3{1'b0}}} == 'h1001020 ) begin
+            src_channel = 10'b0010000000;
+            src_data[PKT_DEST_ID_H:PKT_DEST_ID_L] = 7;
+        end
+
+        // ( 0x1001040 .. 0x1001060 )
+        if ( {address[RG:PAD4],{PAD4{1'b0}}} == 'h1001040 ) begin
+            src_channel = 10'b0100000000;
+            src_data[PKT_DEST_ID_H:PKT_DEST_ID_L] = 8;
+        end
+
+        // ( 0x1001060 .. 0x1001070 )
+        if ( {address[RG:PAD5],{PAD5{1'b0}}} == 'h1001060 ) begin
             src_channel = 10'b0000001000;
             src_data[PKT_DEST_ID_H:PKT_DEST_ID_L] = 3;
         end
 
-        // ( 0x1000000 .. 0x1800000 )
-        if ( {address[RG:PAD9],{PAD9{1'b0}}} == 'h1000000 ) begin
+        // ( 0x1001070 .. 0x1001080 )
+        if ( {address[RG:PAD6],{PAD6{1'b0}}} == 'h1001070 ) begin
+            src_channel = 10'b0000010000;
+            src_data[PKT_DEST_ID_H:PKT_DEST_ID_L] = 4;
+        end
+
+        // ( 0x1001080 .. 0x1001090 )
+        if ( {address[RG:PAD7],{PAD7{1'b0}}} == 'h1001080 ) begin
+            src_channel = 10'b1000000000;
+            src_data[PKT_DEST_ID_H:PKT_DEST_ID_L] = 9;
+        end
+
+        // ( 0x1001090 .. 0x1001098 )
+        if ( {address[RG:PAD8],{PAD8{1'b0}}} == 'h1001090 ) begin
+            src_channel = 10'b0000100000;
+            src_data[PKT_DEST_ID_H:PKT_DEST_ID_L] = 5;
+        end
+
+        // ( 0x1001098 .. 0x100109a )
+        if ( {address[RG:PAD9],{PAD9{1'b0}}} == 'h1001098 ) begin
             src_channel = 10'b0000000100;
             src_data[PKT_DEST_ID_H:PKT_DEST_ID_L] = 2;
         end

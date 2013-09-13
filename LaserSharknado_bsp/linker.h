@@ -2,9 +2,9 @@
  * linker.h - Linker script mapping information
  *
  * Machine generated for CPU 'nios2_qsys_0' in SOPC Builder design 'nios_system'
- * SOPC Builder design path: C:/Users/jorde_000/Documents/GitHub/LaserSharknado/HDL/nios_system.sopcinfo
+ * SOPC Builder design path: ../HDL/nios_system.sopcinfo
  *
- * Generated: Tue Sep 10 18:23:48 PDT 2013
+ * Generated: Thu Sep 12 18:16:09 PDT 2013
  */
 
 /*
@@ -65,11 +65,9 @@
  *
  */
 
-#define ONCHIP_MEMORY2_0_REGION_BASE 0x0
-#define ONCHIP_MEMORY2_0_REGION_SPAN 4096
-#define RESET_REGION_BASE 0x1000000
+#define RESET_REGION_BASE 0x800000
 #define RESET_REGION_SPAN 32
-#define SDRAM_0_REGION_BASE 0x1000020
+#define SDRAM_0_REGION_BASE 0x800020
 #define SDRAM_0_REGION_SPAN 8388576
 
 

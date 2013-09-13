@@ -121,20 +121,20 @@
          type = "int";
       }
    }
-   element timestamp_timer.s1
+   element switches.s1
    {
       datum baseAddress
       {
-         value = "8224";
+         value = "8288";
          type = "long";
       }
    }
-   element HAL_system_timer.s1
+   element onchip_memory2_0.s1
    {
-      datum baseAddress
+      datum _lockedAddress
       {
-         value = "8192";
-         type = "long";
+         value = "1";
+         type = "boolean";
       }
    }
    element sdram_0.s1
@@ -142,22 +142,6 @@
       datum baseAddress
       {
          value = "16777216";
-         type = "long";
-      }
-   }
-   element LEDs.s1
-   {
-      datum baseAddress
-      {
-         value = "8304";
-         type = "long";
-      }
-   }
-   element switches.s1
-   {
-      datum baseAddress
-      {
-         value = "8288";
          type = "long";
       }
    }
@@ -174,12 +158,28 @@
          type = "long";
       }
    }
-   element onchip_memory2_0.s1
+   element HAL_system_timer.s1
    {
-      datum _lockedAddress
+      datum baseAddress
       {
-         value = "1";
-         type = "boolean";
+         value = "8192";
+         type = "long";
+      }
+   }
+   element LEDs.s1
+   {
+      datum baseAddress
+      {
+         value = "8304";
+         type = "long";
+      }
+   }
+   element timestamp_timer.s1
+   {
+      datum baseAddress
+      {
+         value = "8224";
+         type = "long";
       }
    }
    element sdram_0
@@ -226,7 +226,7 @@
  <parameter name="projectName" value="LaserSharknado.qpf" />
  <parameter name="sopcBorderPoints" value="false" />
  <parameter name="systemHash" value="1" />
- <parameter name="timeStamp" value="1379030524525" />
+ <parameter name="timeStamp" value="1379031420771" />
  <parameter name="useTestBenchNamingPattern" value="false" />
  <instanceScript></instanceScript>
  <interface name="clk" internal="clk_0.clk_in" type="clock" dir="end" />

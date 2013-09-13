@@ -2,11 +2,11 @@
 <sch:Settings xmlns:sch="http://www.altera.com/embeddedsw/bsp/schema">
         <BspType>hal</BspType>
         <BspVersion>default</BspVersion>
-        <BspGeneratedTimeStamp>Sep 10, 2013 6:24:38 PM</BspGeneratedTimeStamp>
-        <BspGeneratedUnixTimeStamp>1378862678236</BspGeneratedUnixTimeStamp>
-        <BspGeneratedLocation>C:\Users\jorde_000\Documents\GitHub\LaserSharknado\LaserSharknado_bsp</BspGeneratedLocation>
-        <BspSettingsFile>settings.bsp</BspSettingsFile>
-        <SopcDesignFile>C:\Users\jorde_000\Documents\GitHub\LaserSharknado\HDL\nios_system.sopcinfo</SopcDesignFile>
+        <BspGeneratedTimeStamp>Sep 12, 2013 6:16:09 PM</BspGeneratedTimeStamp>
+        <BspGeneratedUnixTimeStamp>1379034969049</BspGeneratedUnixTimeStamp>
+        <BspGeneratedLocation>C:\Users\Gord\Documents\repos\LaserSharknado\LaserSharknado_bsp\</BspGeneratedLocation>
+        <BspSettingsFile>C:\Users\Gord\Documents\repos\LaserSharknado\LaserSharknado_bsp\settings.bsp</BspSettingsFile>
+        <SopcDesignFile>..\HDL\nios_system.sopcinfo</SopcDesignFile>
         <JdiFile>default</JdiFile>
         <Cpu>nios2_qsys_0</Cpu>
         <SchemaVersion>1.9</SchemaVersion>
@@ -14,7 +14,7 @@
                 <SettingName>hal.sys_clk_timer</SettingName>
                 <Identifier>ALT_SYS_CLK</Identifier>
                 <Type>UnquotedString</Type>
-                <Value>none</Value>
+                <Value>HAL_system_timer</Value>
                 <DefaultValue>none</DefaultValue>
                 <DestinationFile>system_h_define</DestinationFile>
                 <Description>Slave descriptor of the system clock timer device. This device provides a periodic interrupt ("tick") and is typically required for RTOS use. This setting defines the value of ALT_SYS_CLK in system.h.</Description>
@@ -26,7 +26,7 @@
                 <SettingName>hal.timestamp_timer</SettingName>
                 <Identifier>ALT_TIMESTAMP_CLK</Identifier>
                 <Type>UnquotedString</Type>
-                <Value>none</Value>
+                <Value>timestamp_timer</Value>
                 <DefaultValue>none</DefaultValue>
                 <DestinationFile>system_h_define</DestinationFile>
                 <Description>Slave descriptor of timestamp timer device. This device is used by Altera HAL timestamp drivers for high-resolution time measurement. This setting defines the value of ALT_TIMESTAMP_CLK in system.h.</Description>
@@ -851,40 +851,58 @@
                 <Group xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
         </Setting>
         <MemoryMap>
-                <slaveDescriptor>onchip_memory2_0</slaveDescriptor>
-                <addressRange>0x00000000 - 0x00000FFF</addressRange>
-                <addressSpan>4096</addressSpan>
+                <slaveDescriptor>sdram_0</slaveDescriptor>
+                <addressRange>0x00800000 - 0x00FFFFFF</addressRange>
+                <addressSpan>8388608</addressSpan>
                 <attributes>memory</attributes>
         </MemoryMap>
         <MemoryMap>
+                <slaveDescriptor>HAL_system_timer</slaveDescriptor>
+                <addressRange>0x01001000 - 0x0100101F</addressRange>
+                <addressSpan>32</addressSpan>
+                <attributes>timer</attributes>
+        </MemoryMap>
+        <MemoryMap>
+                <slaveDescriptor>timestamp_timer</slaveDescriptor>
+                <addressRange>0x01001020 - 0x0100103F</addressRange>
+                <addressSpan>32</addressSpan>
+                <attributes>timer</attributes>
+        </MemoryMap>
+        <MemoryMap>
+                <slaveDescriptor>hardware_timer</slaveDescriptor>
+                <addressRange>0x01001040 - 0x0100105F</addressRange>
+                <addressSpan>32</addressSpan>
+                <attributes>timer</attributes>
+        </MemoryMap>
+        <MemoryMap>
                 <slaveDescriptor>switches</slaveDescriptor>
-                <addressRange>0x00002000 - 0x0000200F</addressRange>
+                <addressRange>0x01001060 - 0x0100106F</addressRange>
                 <addressSpan>16</addressSpan>
                 <attributes/>
         </MemoryMap>
         <MemoryMap>
                 <slaveDescriptor>LEDs</slaveDescriptor>
-                <addressRange>0x00002010 - 0x0000201F</addressRange>
+                <addressRange>0x01001070 - 0x0100107F</addressRange>
+                <addressSpan>16</addressSpan>
+                <attributes/>
+        </MemoryMap>
+        <MemoryMap>
+                <slaveDescriptor>keys</slaveDescriptor>
+                <addressRange>0x01001080 - 0x0100108F</addressRange>
                 <addressSpan>16</addressSpan>
                 <attributes/>
         </MemoryMap>
         <MemoryMap>
                 <slaveDescriptor>jtag_uart_0</slaveDescriptor>
-                <addressRange>0x00002020 - 0x00002027</addressRange>
+                <addressRange>0x01001090 - 0x01001097</addressRange>
                 <addressSpan>8</addressSpan>
                 <attributes>printable</attributes>
         </MemoryMap>
         <MemoryMap>
                 <slaveDescriptor>character_lcd_0</slaveDescriptor>
-                <addressRange>0x00002028 - 0x00002029</addressRange>
+                <addressRange>0x01001098 - 0x01001099</addressRange>
                 <addressSpan>2</addressSpan>
                 <attributes/>
-        </MemoryMap>
-        <MemoryMap>
-                <slaveDescriptor>sdram_0</slaveDescriptor>
-                <addressRange>0x01000000 - 0x017FFFFF</addressRange>
-                <addressSpan>8388608</addressSpan>
-                <attributes>memory</attributes>
         </MemoryMap>
         <LinkerSection>
                 <sectionName>.text</sectionName>

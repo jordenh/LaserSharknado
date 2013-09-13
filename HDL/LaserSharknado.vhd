@@ -13,7 +13,7 @@ USE ieee.std_logic_unsigned.all;
 entity LaserSharknado is
 port (
     SW : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
-    KEY : IN STD_LOGIC_VECTOR(0 DOWNTO 0);
+    KEY : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
     CLOCK_50 : IN STD_LOGIC;
     LEDG : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
     DRAM_CLK, DRAM_CKE : OUT STD_LOGIC;
@@ -49,7 +49,8 @@ architecture behavioural of LaserSharknado is
         lcd_data_BLON   : OUT STD_LOGIC;
         lcd_data_EN     : OUT STD_LOGIC;
         lcd_data_RS     : OUT STD_LOGIC;
-        lcd_data_RW     : OUT STD_LOGIC
+        lcd_data_RW     : OUT STD_LOGIC;
+		  keys_export		: IN STD_LOGIC_VECTOR(3 downto 0)
         );
     END COMPONENT;
 
@@ -64,7 +65,7 @@ BEGIN
 
     NiosII: nios_system PORT MAP (
         clk_clk => CLOCK_50,
-        reset_reset_n => KEY(0),
+        reset_reset_n => SW(0),
         sdram_clk_clk => DRAM_CLK,
         leds_export => LEDG,
         switches_export => SW,
@@ -82,6 +83,7 @@ BEGIN
         lcd_data_BLON   => LCD_BLON,
         lcd_data_EN     => LCD_EN,
         lcd_data_RS     => LCD_RS,
-        lcd_data_RW     => LCD_RW
+        lcd_data_RW     => LCD_RW,
+		  keys_export		=> not KEY
     );
 end behavioural;

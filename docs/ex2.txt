@@ -1,0 +1,4 @@
+Processor	Hardware Multiplier		# Logic Elements	# Memory bits		Time to perform 100x100 matrix multiply
+NIOS II/e	None					2951				44,032				583634870 ticks, 11.672698 seconds								
+NIOS II/f	None																						
+NIOS II/f	Embedded Multipliers																				

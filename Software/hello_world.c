@@ -45,6 +45,7 @@ int main()
 
 	*leds = *switches;
 
+	timer_test();
 	timeMatrixMultiply();
 
 	return 0;

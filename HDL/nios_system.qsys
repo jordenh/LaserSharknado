@@ -121,12 +121,20 @@
          type = "int";
       }
    }
-   element onchip_memory2_0.s1
+   element timestamp_timer.s1
    {
-      datum _lockedAddress
+      datum baseAddress
       {
-         value = "1";
-         type = "boolean";
+         value = "8224";
+         type = "long";
+      }
+   }
+   element HAL_system_timer.s1
+   {
+      datum baseAddress
+      {
+         value = "8192";
+         type = "long";
       }
    }
    element sdram_0.s1
@@ -137,19 +145,19 @@
          type = "long";
       }
    }
+   element LEDs.s1
+   {
+      datum baseAddress
+      {
+         value = "8304";
+         type = "long";
+      }
+   }
    element switches.s1
    {
       datum baseAddress
       {
          value = "8288";
-         type = "long";
-      }
-   }
-   element HAL_system_timer.s1
-   {
-      datum baseAddress
-      {
-         value = "8192";
          type = "long";
       }
    }
@@ -166,20 +174,12 @@
          type = "long";
       }
    }
-   element timestamp_timer.s1
+   element onchip_memory2_0.s1
    {
-      datum baseAddress
+      datum _lockedAddress
       {
-         value = "8224";
-         type = "long";
-      }
-   }
-   element LEDs.s1
-   {
-      datum baseAddress
-      {
-         value = "8304";
-         type = "long";
+         value = "1";
+         type = "boolean";
       }
    }
    element sdram_0
@@ -226,7 +226,7 @@
  <parameter name="projectName" value="LaserSharknado.qpf" />
  <parameter name="sopcBorderPoints" value="false" />
  <parameter name="systemHash" value="1" />
- <parameter name="timeStamp" value="1379030086083" />
+ <parameter name="timeStamp" value="1379030524525" />
  <parameter name="useTestBenchNamingPattern" value="false" />
  <instanceScript></instanceScript>
  <interface name="clk" internal="clk_0.clk_in" type="clock" dir="end" />
@@ -324,7 +324,7 @@
   <parameter name="mmu_tlbPtrSz" value="7" />
   <parameter name="mmu_tlbNumWays" value="16" />
   <parameter name="mmu_processIDNumBits" value="8" />
-  <parameter name="impl" value="Tiny" />
+  <parameter name="impl" value="Fast" />
   <parameter name="icache_size" value="4096" />
   <parameter name="icache_ramBlockType" value="Automatic" />
   <parameter name="icache_numTCIM" value="0" />

@@ -18,10 +18,12 @@
 #include <stdlib.h>
 #include "altera_up_avalon_character_lcd.h"
 #include "timer.h"
+#include "vga.h"
+#include "io.h"
 #include "Excercises/excercise2.h"
 
-#define switches (volatile char *) 0x0002000
-#define leds (char *) 0x0002010
+#define switches (volatile char *) 0x1001060
+#define leds (char *) 0x1001070
 
 int main()
 {
@@ -42,8 +44,21 @@ int main()
 	alt_up_character_lcd_string(char_lcd_dev, second_row);
 
 	printf("hello, world!\n");
+	alt_up_pixel_buffer_dma_dev* pixel_buffer = setUp();
+	clearScreen(pixel_buffer);
+	drawLine(pixel_buffer, 64, 0, 64, 240, 0xFFFF);
+	drawLine(pixel_buffer, 64, 0, 320, 240, 0xFFFF);
+	drawLine(pixel_buffer, 64, 240, 320, 0, 0xFFFF);
+	drawBox(pixel_buffer, 10, 90, 54, 150, 0xFFFF);
+	printLine();
 
-	*leds = *switches;
+	char keys;
+
+	while (1)
+	{
+		keys = IORD_8DIRECT(0x1001080, 0);
+		IOWR_8DIRECT(0x1001070, 0, keys);
+	}
 
 	timer_test();
 	timeMatrixMultiply();

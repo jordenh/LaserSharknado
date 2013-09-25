@@ -12,6 +12,14 @@
    element $${FILENAME}
    {
    }
+   element Altera_UP_SD_Card_Avalon_Interface_0
+   {
+      datum _sortIndex
+      {
+         value = "12";
+         type = "int";
+      }
+   }
    element HAL_system_timer
    {
       datum _sortIndex
@@ -37,7 +45,7 @@
    {
       datum _sortIndex
       {
-         value = "17";
+         value = "18";
          type = "int";
       }
    }
@@ -82,7 +90,15 @@
    {
       datum baseAddress
       {
-         value = "16781488";
+         value = "16781520";
+         type = "long";
+      }
+   }
+   element Altera_UP_SD_Card_Avalon_Interface_0.avalon_sdcard_slave
+   {
+      datum baseAddress
+      {
+         value = "16782336";
          type = "long";
       }
    }
@@ -98,7 +114,7 @@
    {
       datum _sortIndex
       {
-         value = "16";
+         value = "17";
          type = "int";
       }
    }
@@ -178,7 +194,7 @@
    {
       datum _sortIndex
       {
-         value = "12";
+         value = "13";
          type = "int";
       }
    }
@@ -186,7 +202,23 @@
    {
       datum _sortIndex
       {
-         value = "13";
+         value = "14";
+         type = "int";
+      }
+   }
+   element processorGpIn
+   {
+      datum _sortIndex
+      {
+         value = "22";
+         type = "int";
+      }
+   }
+   element processorGpOut
+   {
+      datum _sortIndex
+      {
+         value = "21";
          type = "int";
       }
    }
@@ -194,37 +226,8 @@
    {
       datum _sortIndex
       {
-         value = "14";
+         value = "15";
          type = "int";
-      }
-   }
-   element timestamp_timer.s1
-   {
-      datum baseAddress
-      {
-         value = "16781344";
-         type = "long";
-      }
-   }
-   element HAL_system_timer.s1
-   {
-      datum baseAddress
-      {
-         value = "16781312";
-         type = "long";
-      }
-   }
-   element keys.s1
-   {
-      datum _lockedAddress
-      {
-         value = "1";
-         type = "boolean";
-      }
-      datum baseAddress
-      {
-         value = "16781440";
-         type = "long";
       }
    }
    element LEDs.s1
@@ -237,19 +240,6 @@
       datum baseAddress
       {
          value = "16781424";
-         type = "long";
-      }
-   }
-   element hardware_timer.s1
-   {
-      datum _lockedAddress
-      {
-         value = "1";
-         type = "boolean";
-      }
-      datum baseAddress
-      {
-         value = "16781376";
          type = "long";
       }
    }
@@ -266,6 +256,64 @@
          type = "long";
       }
    }
+   element processorGpOut.s1
+   {
+      datum baseAddress
+      {
+         value = "16781504";
+         type = "long";
+      }
+   }
+   element processorGpIn.s1
+   {
+      datum baseAddress
+      {
+         value = "16781488";
+         type = "long";
+      }
+   }
+   element timestamp_timer.s1
+   {
+      datum baseAddress
+      {
+         value = "16781344";
+         type = "long";
+      }
+   }
+   element keys.s1
+   {
+      datum _lockedAddress
+      {
+         value = "1";
+         type = "boolean";
+      }
+      datum baseAddress
+      {
+         value = "16781440";
+         type = "long";
+      }
+   }
+   element hardware_timer.s1
+   {
+      datum _lockedAddress
+      {
+         value = "1";
+         type = "boolean";
+      }
+      datum baseAddress
+      {
+         value = "16781376";
+         type = "long";
+      }
+   }
+   element HAL_system_timer.s1
+   {
+      datum baseAddress
+      {
+         value = "16781312";
+         type = "long";
+      }
+   }
    element sdram_0.s1
    {
       datum baseAddress
@@ -278,7 +326,7 @@
    {
       datum _sortIndex
       {
-         value = "15";
+         value = "16";
          type = "int";
       }
    }
@@ -315,7 +363,7 @@
    {
       datum _sortIndex
       {
-         value = "19";
+         value = "20";
          type = "int";
       }
    }
@@ -323,7 +371,7 @@
    {
       datum _sortIndex
       {
-         value = "18";
+         value = "19";
          type = "int";
       }
    }
@@ -342,7 +390,7 @@
  <parameter name="projectName" value="LaserSharknado.qpf" />
  <parameter name="sopcBorderPoints" value="false" />
  <parameter name="systemHash" value="1" />
- <parameter name="timeStamp" value="1379176053370" />
+ <parameter name="timeStamp" value="1380075401529" />
  <parameter name="useTestBenchNamingPattern" value="false" />
  <instanceScript></instanceScript>
  <interface name="clk" internal="clk_0.clk_in" type="clock" dir="end" />
@@ -379,6 +427,21 @@
    type="conduit"
    dir="end" />
  <interface name="sdram_clk" internal="clocks.sdram_clk" type="clock" dir="start" />
+ <interface
+   name="sd_card"
+   internal="Altera_UP_SD_Card_Avalon_Interface_0.conduit_end"
+   type="conduit"
+   dir="end" />
+ <interface
+   name="processorgpin"
+   internal="processorGpIn.external_connection"
+   type="conduit"
+   dir="end" />
+ <interface
+   name="processorgpout"
+   internal="processorGpOut.external_connection"
+   type="conduit"
+   dir="end" />
  <module kind="clock_source" version="12.0" enabled="1" name="clk_0">
   <parameter name="clockFrequency" value="50000000" />
   <parameter name="clockFrequencyKnown" value="true" />
@@ -463,7 +526,7 @@
   <parameter name="dcache_bursts" value="false" />
   <parameter name="debug_level" value="Level1" />
   <parameter name="debug_OCIOnchipTrace" value="_128" />
-  <parameter name="dcache_size" value="2048" />
+  <parameter name="dcache_size" value="16384" />
   <parameter name="dcache_ramBlockType" value="Automatic" />
   <parameter name="dcache_numTCDM" value="0" />
   <parameter name="dcache_lineSize" value="32" />
@@ -478,7 +541,7 @@
   <parameter name="tightlyCoupledInstructionMaster2AddrWidth" value="1" />
   <parameter name="tightlyCoupledInstructionMaster3AddrWidth" value="1" />
   <parameter name="instSlaveMapParam"><![CDATA[<address-map><slave name='sdram_0.s1' start='0x800000' end='0x1000000' /><slave name='nios2_qsys_0.jtag_debug_module' start='0x1000800' end='0x1001000' /></address-map>]]></parameter>
-  <parameter name="dataSlaveMapParam"><![CDATA[<address-map><slave name='sdram_0.s1' start='0x800000' end='0x1000000' /><slave name='nios2_qsys_0.jtag_debug_module' start='0x1000800' end='0x1001000' /><slave name='HAL_system_timer.s1' start='0x1001000' end='0x1001020' /><slave name='timestamp_timer.s1' start='0x1001020' end='0x1001040' /><slave name='hardware_timer.s1' start='0x1001040' end='0x1001060' /><slave name='switches.s1' start='0x1001060' end='0x1001070' /><slave name='LEDs.s1' start='0x1001070' end='0x1001080' /><slave name='keys.s1' start='0x1001080' end='0x1001090' /><slave name='jtag_uart_0.avalon_jtag_slave' start='0x1001090' end='0x1001098' /><slave name='char_drawer.avalon_char_control_slave' start='0x1001098' end='0x10010A0' /><slave name='pixel_buffer_dma.avalon_control_slave' start='0x10010A0' end='0x10010B0' /><slave name='character_lcd_0.avalon_lcd_slave' start='0x10010B0' end='0x10010B2' /><slave name='char_drawer.avalon_char_buffer_slave' start='0x1002000' end='0x1004000' /><slave name='pixel_buffer.avalon_sram_slave' start='0x1080000' end='0x1100000' /></address-map>]]></parameter>
+  <parameter name="dataSlaveMapParam"><![CDATA[<address-map><slave name='sdram_0.s1' start='0x800000' end='0x1000000' /><slave name='nios2_qsys_0.jtag_debug_module' start='0x1000800' end='0x1001000' /><slave name='HAL_system_timer.s1' start='0x1001000' end='0x1001020' /><slave name='timestamp_timer.s1' start='0x1001020' end='0x1001040' /><slave name='hardware_timer.s1' start='0x1001040' end='0x1001060' /><slave name='switches.s1' start='0x1001060' end='0x1001070' /><slave name='LEDs.s1' start='0x1001070' end='0x1001080' /><slave name='keys.s1' start='0x1001080' end='0x1001090' /><slave name='jtag_uart_0.avalon_jtag_slave' start='0x1001090' end='0x1001098' /><slave name='char_drawer.avalon_char_control_slave' start='0x1001098' end='0x10010A0' /><slave name='pixel_buffer_dma.avalon_control_slave' start='0x10010A0' end='0x10010B0' /><slave name='processorGpIn.s1' start='0x10010B0' end='0x10010C0' /><slave name='processorGpOut.s1' start='0x10010C0' end='0x10010D0' /><slave name='character_lcd_0.avalon_lcd_slave' start='0x10010D0' end='0x10010D2' /><slave name='Altera_UP_SD_Card_Avalon_Interface_0.avalon_sdcard_slave' start='0x1001400' end='0x1001800' /><slave name='char_drawer.avalon_char_buffer_slave' start='0x1002000' end='0x1004000' /><slave name='pixel_buffer.avalon_sram_slave' start='0x1080000' end='0x1100000' /></address-map>]]></parameter>
   <parameter name="clockFrequency" value="50000000" />
   <parameter name="deviceFamilyName" value="Cyclone II" />
   <parameter name="internalIrqMaskSystemInfo" value="39" />
@@ -505,7 +568,7 @@
   <parameter name="resetValue" value="0" />
   <parameter name="simDoTestBenchWiring" value="false" />
   <parameter name="simDrivenValue" value="0" />
-  <parameter name="width" value="8" />
+  <parameter name="width" value="18" />
  </module>
  <module kind="altera_avalon_pio" version="12.0" enabled="1" name="LEDs">
   <parameter name="bitClearingEdgeCapReg" value="false" />
@@ -519,7 +582,7 @@
   <parameter name="resetValue" value="0" />
   <parameter name="simDoTestBenchWiring" value="false" />
   <parameter name="simDrivenValue" value="0" />
-  <parameter name="width" value="8" />
+  <parameter name="width" value="26" />
  </module>
  <module
    kind="altera_avalon_jtag_uart"
@@ -740,6 +803,50 @@
   <parameter name="AUTO_CLOCK_RESET_CLOCK_RATE" value="25000000" />
   <parameter name="AUTO_DEVICE_FAMILY" value="Cyclone II" />
  </module>
+ <module
+   kind="Altera_UP_SD_Card_Avalon_Interface"
+   version="1.0"
+   enabled="1"
+   name="Altera_UP_SD_Card_Avalon_Interface_0">
+  <parameter name="AUTO_CLOCK_SINK_CLOCK_RATE" value="50000000" />
+  <parameter name="AUTO_DEVICE_FAMILY" value="Cyclone II" />
+ </module>
+ <module
+   kind="altera_avalon_pio"
+   version="12.0"
+   enabled="1"
+   name="processorGpOut">
+  <parameter name="bitClearingEdgeCapReg" value="false" />
+  <parameter name="bitModifyingOutReg" value="false" />
+  <parameter name="captureEdge" value="false" />
+  <parameter name="clockRate" value="25000000" />
+  <parameter name="direction" value="Output" />
+  <parameter name="edgeType" value="RISING" />
+  <parameter name="generateIRQ" value="false" />
+  <parameter name="irqType" value="LEVEL" />
+  <parameter name="resetValue" value="0" />
+  <parameter name="simDoTestBenchWiring" value="false" />
+  <parameter name="simDrivenValue" value="0" />
+  <parameter name="width" value="8" />
+ </module>
+ <module
+   kind="altera_avalon_pio"
+   version="12.0"
+   enabled="1"
+   name="processorGpIn">
+  <parameter name="bitClearingEdgeCapReg" value="false" />
+  <parameter name="bitModifyingOutReg" value="false" />
+  <parameter name="captureEdge" value="false" />
+  <parameter name="clockRate" value="25000000" />
+  <parameter name="direction" value="Input" />
+  <parameter name="edgeType" value="RISING" />
+  <parameter name="generateIRQ" value="false" />
+  <parameter name="irqType" value="LEVEL" />
+  <parameter name="resetValue" value="0" />
+  <parameter name="simDoTestBenchWiring" value="false" />
+  <parameter name="simDrivenValue" value="0" />
+  <parameter name="width" value="8" />
+ </module>
  <connection
    kind="avalon"
    version="12.0"
@@ -821,7 +928,7 @@
    start="nios2_qsys_0.data_master"
    end="character_lcd_0.avalon_lcd_slave">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x010010b0" />
+  <parameter name="baseAddress" value="0x010010d0" />
  </connection>
  <connection
    kind="reset"
@@ -1146,11 +1253,6 @@
    start="nios2_qsys_0.jtag_debug_module_reset"
    end="alpha_blender.clock_reset_reset" />
  <connection
-   kind="avalon_streaming"
-   version="12.0"
-   start="alpha_blender.avalon_blended_source"
-   end="video_fifo.avalon_dc_buffer_sink" />
- <connection
    kind="clock"
    version="12.0"
    start="clocks.sys_clk"
@@ -1176,11 +1278,6 @@
    start="nios2_qsys_0.jtag_debug_module_reset"
    end="video_fifo.clock_stream_out_reset" />
  <connection
-   kind="avalon_streaming"
-   version="12.0"
-   start="video_fifo.avalon_dc_buffer_source"
-   end="vga_controller.avalon_vga_sink" />
- <connection
    kind="reset"
    version="12.0"
    start="nios2_qsys_0.jtag_debug_module_reset"
@@ -1200,4 +1297,83 @@
    version="12.0"
    start="clocks.vga_clk"
    end="vga_controller.clock_reset" />
+ <connection
+   kind="avalon"
+   version="12.0"
+   start="nios2_qsys_0.data_master"
+   end="Altera_UP_SD_Card_Avalon_Interface_0.avalon_sdcard_slave">
+  <parameter name="arbitrationPriority" value="1" />
+  <parameter name="baseAddress" value="0x01001400" />
+ </connection>
+ <connection
+   kind="reset"
+   version="12.0"
+   start="clk_0.clk_reset"
+   end="Altera_UP_SD_Card_Avalon_Interface_0.clock_sink_reset" />
+ <connection
+   kind="clock"
+   version="12.0"
+   start="clocks.sys_clk"
+   end="Altera_UP_SD_Card_Avalon_Interface_0.clock_sink" />
+ <connection
+   kind="reset"
+   version="12.0"
+   start="nios2_qsys_0.jtag_debug_module_reset"
+   end="Altera_UP_SD_Card_Avalon_Interface_0.clock_sink_reset" />
+ <connection
+   kind="clock"
+   version="12.0"
+   start="clocks.vga_clk"
+   end="processorGpOut.clk" />
+ <connection
+   kind="clock"
+   version="12.0"
+   start="clocks.vga_clk"
+   end="processorGpIn.clk" />
+ <connection
+   kind="reset"
+   version="12.0"
+   start="nios2_qsys_0.jtag_debug_module_reset"
+   end="processorGpOut.reset" />
+ <connection
+   kind="reset"
+   version="12.0"
+   start="clk_0.clk_reset"
+   end="processorGpOut.reset" />
+ <connection
+   kind="reset"
+   version="12.0"
+   start="clk_0.clk_reset"
+   end="processorGpIn.reset" />
+ <connection
+   kind="reset"
+   version="12.0"
+   start="nios2_qsys_0.jtag_debug_module_reset"
+   end="processorGpIn.reset" />
+ <connection
+   kind="avalon"
+   version="12.0"
+   start="nios2_qsys_0.data_master"
+   end="processorGpIn.s1">
+  <parameter name="arbitrationPriority" value="1" />
+  <parameter name="baseAddress" value="0x010010b0" />
+ </connection>
+ <connection
+   kind="avalon"
+   version="12.0"
+   start="nios2_qsys_0.data_master"
+   end="processorGpOut.s1">
+  <parameter name="arbitrationPriority" value="1" />
+  <parameter name="baseAddress" value="0x010010c0" />
+ </connection>
+ <connection
+   kind="avalon_streaming"
+   version="12.0"
+   start="alpha_blender.avalon_blended_source"
+   end="video_fifo.avalon_dc_buffer_sink" />
+ <connection
+   kind="avalon_streaming"
+   version="12.0"
+   start="video_fifo.avalon_dc_buffer_source"
+   end="vga_controller.avalon_vga_sink" />
 </system>

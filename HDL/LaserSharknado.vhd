@@ -12,10 +12,11 @@ USE ieee.std_logic_unsigned.all;
 
 entity LaserSharknado is
 port (
-    SW : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
+    SW : IN STD_LOGIC_VECTOR(17 DOWNTO 0);
     KEY : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
     CLOCK_50 : IN STD_LOGIC;
     LEDG : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
+	 LEDR : OUT STD_LOGIC_VECTOR(17 DOWNTO 0);
     DRAM_CLK, DRAM_CKE : OUT STD_LOGIC;
     DRAM_ADDR : OUT STD_LOGIC_VECTOR(11 DOWNTO 0);
     DRAM_BA_0, DRAM_BA_1 : BUFFER STD_LOGIC;
@@ -24,6 +25,8 @@ port (
     DRAM_UDQM, DRAM_LDQM : BUFFER STD_LOGIC;
     LCD_DATA : INOUT STD_LOGIC_VECTOR(7 DOWNTO 0);
     LCD_ON, LCD_BLON, LCD_EN, LCD_RS, LCD_RW : out STD_LOGIC;
+	 SD_CMD, SD_DAT, SD_DAT3 : INOUT STD_LOGIC;
+	 SD_CLK : OUT STD_LOGIC;
 	 VGA_R:out	std_logic_vector(9	downto	0);	
 	 VGA_G:out	std_logic_vector(9	downto	0);	
 	 VGA_B:out	std_logic_vector(9	downto	0);	
@@ -48,8 +51,8 @@ architecture behavioural of LaserSharknado is
         clk_clk : IN STD_LOGIC;
         reset_reset_n : IN STD_LOGIC;
         sdram_clk_clk : OUT STD_LOGIC;
-        leds_export : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
-        switches_export : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
+        leds_export : OUT STD_LOGIC_VECTOR(25 DOWNTO 0);
+        switches_export : IN STD_LOGIC_VECTOR(17 DOWNTO 0);
         sdram_wire_addr : OUT STD_LOGIC_VECTOR(11 DOWNTO 0);
         sdram_wire_ba : BUFFER STD_LOGIC_VECTOR(1 DOWNTO 0);
         sdram_wire_cas_n : OUT STD_LOGIC;
@@ -65,6 +68,10 @@ architecture behavioural of LaserSharknado is
         lcd_data_EN     : OUT STD_LOGIC;
         lcd_data_RS     : OUT STD_LOGIC;
         lcd_data_RW     : OUT STD_LOGIC;
+		  sd_card_b_SD_cmd : INOUT STD_LOGIC;
+		  sd_card_b_SD_dat : INOUT STD_LOGIC;
+		  sd_card_b_SD_dat3 : INOUT STD_LOGIC;
+		  sd_card_o_SD_clock : OUT STD_LOGIC;
 		  keys_export		: IN STD_LOGIC_VECTOR(3 downto 0);
 		  vga_controller_CLK	: OUT STD_LOGIC;	
 		  vga_controller_HS : OUT STD_LOGIC;	
@@ -74,6 +81,8 @@ architecture behavioural of LaserSharknado is
 		  vga_controller_R : OUT STD_LOGIC_VECTOR(9 downto 0);	
 		  vga_controller_G : OUT STD_LOGIC_VECTOR(9 downto 0);
 		  vga_controller_B : OUT STD_LOGIC_VECTOR(9 downto 0);
+		  processorgpin_export : IN STD_LOGIC_VECTOR(7 downto 0);
+		  processorgpout_export : OUT STD_LOGIC_VECTOR(7 downto 0);
 		  sram_DQ : INOUT STD_LOGIC_VECTOR(15 downto 0);
 		  sram_ADDR	: OUT STD_LOGIC_VECTOR(17 downto 0);
 		  sram_LB_N : OUT STD_LOGIC;
@@ -86,6 +95,9 @@ architecture behavioural of LaserSharknado is
 
     SIGNAL DQM : STD_LOGIC_VECTOR(1 DOWNTO 0);
     SIGNAL BA : STD_LOGIC_VECTOR(1 DOWNTO 0);
+	 
+	 signal placeholder_ProcessorInput : std_logic_vector(7 downto 0);
+	 signal placeholder_ProcessorOutput : std_logic_vector(7 downto 0);
 
 BEGIN
 	DRAM_BA_0 <= BA(0);
@@ -97,7 +109,8 @@ BEGIN
         clk_clk => CLOCK_50,
         reset_reset_n => SW(0),
         sdram_clk_clk => DRAM_CLK,
-        leds_export => LEDG,
+        leds_export(7 downto 0) => LEDG,
+		  leds_export(25 downto 8) => LEDR,
         switches_export => SW,
         sdram_wire_addr => DRAM_ADDR,
         sdram_wire_ba => BA,
@@ -115,6 +128,8 @@ BEGIN
         lcd_data_RS     => LCD_RS,
         lcd_data_RW     => LCD_RW,
 		  keys_export		=> not KEY,
+		  processorgpin_export  => placeholder_ProcessorInput,
+		  processorgpout_export => placeholder_ProcessorOutput,
 		  vga_controller_CLK	=>	VGA_CLK,	
 		  vga_controller_HS	=>	VGA_HS,	
 		  vga_controller_VS	=>	VGA_VS,	
@@ -123,6 +138,10 @@ BEGIN
 		  vga_controller_R	=>	VGA_R,	
 		  vga_controller_G	=>	VGA_G,	
 		  vga_controller_B	=>	VGA_B,
+		  sd_card_b_SD_cmd => SD_CMD,
+		  sd_card_b_SD_dat => SD_DAT,
+		  sd_card_b_SD_dat3 => SD_DAT3,
+		  sd_card_o_SD_clock => SD_CLK,
 		  sram_DQ	=>	SRAM_DQ,
 		  sram_ADDR	=>	SRAM_ADDR,
 		  sram_LB_N	=>	SRAM_LB_N,

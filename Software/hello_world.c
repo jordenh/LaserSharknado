@@ -53,6 +53,16 @@ int main()
 	printLine();
 
 	char keys;
+	setHardwareTimerPeriod(5 * CLOCK_FREQ);
+	startHardwareTimer();
+
+	while (1)
+	{
+		if (hasHardwareTimerExpired() == 1)
+		{
+			printf("Timer has expired\n");
+		}
+	}
 
 	while (1)
 	{

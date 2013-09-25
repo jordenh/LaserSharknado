@@ -1,5 +1,5 @@
 Flow report for LaserSharknado
-Thu Sep 19 17:16:50 2013
+Tue Sep 24 19:27:21 2013
 Quartus II 32-bit Version 12.0 Build 263 08/02/2012 Service Pack 2 SJ Web Edition
 
 
@@ -38,20 +38,20 @@ applicable agreement for further details.
 +------------------------------------------------------------------------------------+
 ; Flow Summary                                                                       ;
 +------------------------------------+-----------------------------------------------+
-; Flow Status                        ; Successful - Thu Sep 19 17:16:48 2013         ;
+; Flow Status                        ; Successful - Tue Sep 24 19:27:18 2013         ;
 ; Quartus II 32-bit Version          ; 12.0 Build 263 08/02/2012 SP 2 SJ Web Edition ;
 ; Revision Name                      ; LaserSharknado                                ;
 ; Top-level Entity Name              ; LaserSharknado                                ;
 ; Family                             ; Cyclone II                                    ;
 ; Device                             ; EP2C35F672C6                                  ;
 ; Timing Models                      ; Final                                         ;
-; Total logic elements               ; 5,997 / 33,216 ( 18 % )                       ;
-;     Total combinational functions  ; 5,419 / 33,216 ( 16 % )                       ;
-;     Dedicated logic registers      ; 3,902 / 33,216 ( 12 % )                       ;
-; Total registers                    ; 3970                                          ;
-; Total pins                         ; 146 / 475 ( 31 % )                            ;
+; Total logic elements               ; 7,646 / 33,216 ( 23 % )                       ;
+;     Total combinational functions  ; 6,802 / 33,216 ( 20 % )                       ;
+;     Dedicated logic registers      ; 4,998 / 33,216 ( 15 % )                       ;
+; Total registers                    ; 5066                                          ;
+; Total pins                         ; 178 / 475 ( 37 % )                            ;
 ; Total virtual pins                 ; 0                                             ;
-; Total memory bits                  ; 153,088 / 483,840 ( 32 % )                    ;
+; Total memory bits                  ; 277,504 / 483,840 ( 57 % )                    ;
 ; Embedded Multiplier 9-bit elements ; 4 / 70 ( 6 % )                                ;
 ; Total PLLs                         ; 1 / 4 ( 25 % )                                ;
 +------------------------------------+-----------------------------------------------+
@@ -62,139 +62,152 @@ applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 09/19/2013 17:14:40 ;
+; Start date & time ; 09/24/2013 19:25:04 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; LaserSharknado      ;
 +-------------------+---------------------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Flow Non-Default Global Settings                                                                                                                                   ;
-+-------------------------------------+---------------------------------------------------------------+---------------+---------------------------------+------------+
-; Assignment Name                     ; Value                                                         ; Default Value ; Entity Name                     ; Section Id ;
-+-------------------------------------+---------------------------------------------------------------+---------------+---------------------------------+------------+
-; COMPILER_SIGNATURE_ID               ; 119236233065782.137963607803976                               ; --            ; --                              ; --         ;
-; IP_TOOL_ENV                         ; qsys                                                          ; --            ; altera_avalon_sc_fifo           ; --         ;
-; IP_TOOL_ENV                         ; qsys                                                          ; --            ; altera_merlin_burst_adapter     ; --         ;
-; IP_TOOL_ENV                         ; qsys                                                          ; --            ; altera_merlin_master_agent      ; --         ;
-; IP_TOOL_ENV                         ; qsys                                                          ; --            ; altera_merlin_master_translator ; --         ;
-; IP_TOOL_ENV                         ; qsys                                                          ; --            ; altera_merlin_slave_agent       ; --         ;
-; IP_TOOL_ENV                         ; qsys                                                          ; --            ; altera_merlin_slave_translator  ; --         ;
-; IP_TOOL_ENV                         ; qsys                                                          ; --            ; altera_merlin_traffic_limiter   ; --         ;
-; IP_TOOL_ENV                         ; qsys                                                          ; --            ; altera_merlin_width_adapter     ; --         ;
-; IP_TOOL_ENV                         ; qsys                                                          ; --            ; altera_reset_controller         ; --         ;
-; IP_TOOL_ENV                         ; qsys                                                          ; --            ; nios_system                     ; --         ;
-; IP_TOOL_ENV                         ; qsys                                                          ; --            ; nios_system_HAL_system_timer    ; --         ;
-; IP_TOOL_ENV                         ; qsys                                                          ; --            ; nios_system_LEDs                ; --         ;
-; IP_TOOL_ENV                         ; qsys                                                          ; --            ; nios_system_addr_router         ; --         ;
-; IP_TOOL_ENV                         ; qsys                                                          ; --            ; nios_system_addr_router_001     ; --         ;
-; IP_TOOL_ENV                         ; qsys                                                          ; --            ; nios_system_addr_router_002     ; --         ;
-; IP_TOOL_ENV                         ; qsys                                                          ; --            ; nios_system_cmd_xbar_demux      ; --         ;
-; IP_TOOL_ENV                         ; qsys                                                          ; --            ; nios_system_cmd_xbar_demux_001  ; --         ;
-; IP_TOOL_ENV                         ; qsys                                                          ; --            ; nios_system_cmd_xbar_demux_002  ; --         ;
-; IP_TOOL_ENV                         ; qsys                                                          ; --            ; nios_system_cmd_xbar_mux        ; --         ;
-; IP_TOOL_ENV                         ; qsys                                                          ; --            ; nios_system_cmd_xbar_mux_001    ; --         ;
-; IP_TOOL_ENV                         ; qsys                                                          ; --            ; nios_system_id_router           ; --         ;
-; IP_TOOL_ENV                         ; qsys                                                          ; --            ; nios_system_id_router_001       ; --         ;
-; IP_TOOL_ENV                         ; qsys                                                          ; --            ; nios_system_id_router_002       ; --         ;
-; IP_TOOL_ENV                         ; qsys                                                          ; --            ; nios_system_id_router_003       ; --         ;
-; IP_TOOL_ENV                         ; qsys                                                          ; --            ; nios_system_id_router_010       ; --         ;
-; IP_TOOL_ENV                         ; qsys                                                          ; --            ; nios_system_irq_mapper          ; --         ;
-; IP_TOOL_ENV                         ; qsys                                                          ; --            ; nios_system_jtag_uart_0         ; --         ;
-; IP_TOOL_ENV                         ; qsys                                                          ; --            ; nios_system_keys                ; --         ;
-; IP_TOOL_ENV                         ; qsys                                                          ; --            ; nios_system_nios2_qsys_0        ; --         ;
-; IP_TOOL_ENV                         ; qsys                                                          ; --            ; nios_system_rsp_xbar_demux      ; --         ;
-; IP_TOOL_ENV                         ; qsys                                                          ; --            ; nios_system_rsp_xbar_demux_001  ; --         ;
-; IP_TOOL_ENV                         ; qsys                                                          ; --            ; nios_system_rsp_xbar_demux_002  ; --         ;
-; IP_TOOL_ENV                         ; qsys                                                          ; --            ; nios_system_rsp_xbar_demux_003  ; --         ;
-; IP_TOOL_ENV                         ; qsys                                                          ; --            ; nios_system_rsp_xbar_mux        ; --         ;
-; IP_TOOL_ENV                         ; qsys                                                          ; --            ; nios_system_rsp_xbar_mux_001    ; --         ;
-; IP_TOOL_ENV                         ; qsys                                                          ; --            ; nios_system_sdram_0             ; --         ;
-; IP_TOOL_ENV                         ; qsys                                                          ; --            ; nios_system_switches            ; --         ;
-; IP_TOOL_NAME                        ; altera_avalon_sc_fifo                                         ; --            ; altera_avalon_sc_fifo           ; --         ;
-; IP_TOOL_NAME                        ; altera_merlin_burst_adapter                                   ; --            ; altera_merlin_burst_adapter     ; --         ;
-; IP_TOOL_NAME                        ; altera_merlin_master_agent                                    ; --            ; altera_merlin_master_agent      ; --         ;
-; IP_TOOL_NAME                        ; altera_merlin_master_translator                               ; --            ; altera_merlin_master_translator ; --         ;
-; IP_TOOL_NAME                        ; altera_merlin_slave_agent                                     ; --            ; altera_merlin_slave_agent       ; --         ;
-; IP_TOOL_NAME                        ; altera_merlin_slave_translator                                ; --            ; altera_merlin_slave_translator  ; --         ;
-; IP_TOOL_NAME                        ; altera_merlin_traffic_limiter                                 ; --            ; altera_merlin_traffic_limiter   ; --         ;
-; IP_TOOL_NAME                        ; altera_merlin_width_adapter                                   ; --            ; altera_merlin_width_adapter     ; --         ;
-; IP_TOOL_NAME                        ; altera_reset_controller                                       ; --            ; altera_reset_controller         ; --         ;
-; IP_TOOL_NAME                        ; qsys                                                          ; --            ; nios_system                     ; --         ;
-; IP_TOOL_NAME                        ; altera_avalon_timer                                           ; --            ; nios_system_HAL_system_timer    ; --         ;
-; IP_TOOL_NAME                        ; altera_avalon_pio                                             ; --            ; nios_system_LEDs                ; --         ;
-; IP_TOOL_NAME                        ; altera_merlin_router                                          ; --            ; nios_system_addr_router         ; --         ;
-; IP_TOOL_NAME                        ; altera_merlin_router                                          ; --            ; nios_system_addr_router_001     ; --         ;
-; IP_TOOL_NAME                        ; altera_merlin_router                                          ; --            ; nios_system_addr_router_002     ; --         ;
-; IP_TOOL_NAME                        ; altera_merlin_demultiplexer                                   ; --            ; nios_system_cmd_xbar_demux      ; --         ;
-; IP_TOOL_NAME                        ; altera_merlin_demultiplexer                                   ; --            ; nios_system_cmd_xbar_demux_001  ; --         ;
-; IP_TOOL_NAME                        ; altera_merlin_demultiplexer                                   ; --            ; nios_system_cmd_xbar_demux_002  ; --         ;
-; IP_TOOL_NAME                        ; altera_merlin_multiplexer                                     ; --            ; nios_system_cmd_xbar_mux        ; --         ;
-; IP_TOOL_NAME                        ; altera_merlin_multiplexer                                     ; --            ; nios_system_cmd_xbar_mux_001    ; --         ;
-; IP_TOOL_NAME                        ; altera_merlin_router                                          ; --            ; nios_system_id_router           ; --         ;
-; IP_TOOL_NAME                        ; altera_merlin_router                                          ; --            ; nios_system_id_router_001       ; --         ;
-; IP_TOOL_NAME                        ; altera_merlin_router                                          ; --            ; nios_system_id_router_002       ; --         ;
-; IP_TOOL_NAME                        ; altera_merlin_router                                          ; --            ; nios_system_id_router_003       ; --         ;
-; IP_TOOL_NAME                        ; altera_merlin_router                                          ; --            ; nios_system_id_router_010       ; --         ;
-; IP_TOOL_NAME                        ; altera_irq_mapper                                             ; --            ; nios_system_irq_mapper          ; --         ;
-; IP_TOOL_NAME                        ; altera_avalon_jtag_uart                                       ; --            ; nios_system_jtag_uart_0         ; --         ;
-; IP_TOOL_NAME                        ; altera_avalon_pio                                             ; --            ; nios_system_keys                ; --         ;
-; IP_TOOL_NAME                        ; altera_nios2_qsys                                             ; --            ; nios_system_nios2_qsys_0        ; --         ;
-; IP_TOOL_NAME                        ; altera_merlin_demultiplexer                                   ; --            ; nios_system_rsp_xbar_demux      ; --         ;
-; IP_TOOL_NAME                        ; altera_merlin_demultiplexer                                   ; --            ; nios_system_rsp_xbar_demux_001  ; --         ;
-; IP_TOOL_NAME                        ; altera_merlin_demultiplexer                                   ; --            ; nios_system_rsp_xbar_demux_002  ; --         ;
-; IP_TOOL_NAME                        ; altera_merlin_demultiplexer                                   ; --            ; nios_system_rsp_xbar_demux_003  ; --         ;
-; IP_TOOL_NAME                        ; altera_merlin_multiplexer                                     ; --            ; nios_system_rsp_xbar_mux        ; --         ;
-; IP_TOOL_NAME                        ; altera_merlin_multiplexer                                     ; --            ; nios_system_rsp_xbar_mux_001    ; --         ;
-; IP_TOOL_NAME                        ; altera_avalon_new_sdram_controller                            ; --            ; nios_system_sdram_0             ; --         ;
-; IP_TOOL_NAME                        ; altera_avalon_pio                                             ; --            ; nios_system_switches            ; --         ;
-; IP_TOOL_VERSION                     ; 12.0                                                          ; --            ; altera_avalon_sc_fifo           ; --         ;
-; IP_TOOL_VERSION                     ; 12.0                                                          ; --            ; altera_merlin_burst_adapter     ; --         ;
-; IP_TOOL_VERSION                     ; 12.0                                                          ; --            ; altera_merlin_master_agent      ; --         ;
-; IP_TOOL_VERSION                     ; 12.0                                                          ; --            ; altera_merlin_master_translator ; --         ;
-; IP_TOOL_VERSION                     ; 12.0                                                          ; --            ; altera_merlin_slave_agent       ; --         ;
-; IP_TOOL_VERSION                     ; 12.0                                                          ; --            ; altera_merlin_slave_translator  ; --         ;
-; IP_TOOL_VERSION                     ; 12.0                                                          ; --            ; altera_merlin_traffic_limiter   ; --         ;
-; IP_TOOL_VERSION                     ; 12.0                                                          ; --            ; altera_merlin_width_adapter     ; --         ;
-; IP_TOOL_VERSION                     ; 12.0                                                          ; --            ; altera_reset_controller         ; --         ;
-; IP_TOOL_VERSION                     ; 12.0sp2                                                       ; --            ; nios_system                     ; --         ;
-; IP_TOOL_VERSION                     ; 12.0                                                          ; --            ; nios_system_HAL_system_timer    ; --         ;
-; IP_TOOL_VERSION                     ; 12.0                                                          ; --            ; nios_system_LEDs                ; --         ;
-; IP_TOOL_VERSION                     ; 12.0                                                          ; --            ; nios_system_addr_router         ; --         ;
-; IP_TOOL_VERSION                     ; 12.0                                                          ; --            ; nios_system_addr_router_001     ; --         ;
-; IP_TOOL_VERSION                     ; 12.0                                                          ; --            ; nios_system_addr_router_002     ; --         ;
-; IP_TOOL_VERSION                     ; 12.0                                                          ; --            ; nios_system_cmd_xbar_demux      ; --         ;
-; IP_TOOL_VERSION                     ; 12.0                                                          ; --            ; nios_system_cmd_xbar_demux_001  ; --         ;
-; IP_TOOL_VERSION                     ; 12.0                                                          ; --            ; nios_system_cmd_xbar_demux_002  ; --         ;
-; IP_TOOL_VERSION                     ; 12.0                                                          ; --            ; nios_system_cmd_xbar_mux        ; --         ;
-; IP_TOOL_VERSION                     ; 12.0                                                          ; --            ; nios_system_cmd_xbar_mux_001    ; --         ;
-; IP_TOOL_VERSION                     ; 12.0                                                          ; --            ; nios_system_id_router           ; --         ;
-; IP_TOOL_VERSION                     ; 12.0                                                          ; --            ; nios_system_id_router_001       ; --         ;
-; IP_TOOL_VERSION                     ; 12.0                                                          ; --            ; nios_system_id_router_002       ; --         ;
-; IP_TOOL_VERSION                     ; 12.0                                                          ; --            ; nios_system_id_router_003       ; --         ;
-; IP_TOOL_VERSION                     ; 12.0                                                          ; --            ; nios_system_id_router_010       ; --         ;
-; IP_TOOL_VERSION                     ; 12.0                                                          ; --            ; nios_system_irq_mapper          ; --         ;
-; IP_TOOL_VERSION                     ; 12.0                                                          ; --            ; nios_system_jtag_uart_0         ; --         ;
-; IP_TOOL_VERSION                     ; 12.0                                                          ; --            ; nios_system_keys                ; --         ;
-; IP_TOOL_VERSION                     ; 12.0                                                          ; --            ; nios_system_nios2_qsys_0        ; --         ;
-; IP_TOOL_VERSION                     ; 12.0                                                          ; --            ; nios_system_rsp_xbar_demux      ; --         ;
-; IP_TOOL_VERSION                     ; 12.0                                                          ; --            ; nios_system_rsp_xbar_demux_001  ; --         ;
-; IP_TOOL_VERSION                     ; 12.0                                                          ; --            ; nios_system_rsp_xbar_demux_002  ; --         ;
-; IP_TOOL_VERSION                     ; 12.0                                                          ; --            ; nios_system_rsp_xbar_demux_003  ; --         ;
-; IP_TOOL_VERSION                     ; 12.0                                                          ; --            ; nios_system_rsp_xbar_mux        ; --         ;
-; IP_TOOL_VERSION                     ; 12.0                                                          ; --            ; nios_system_rsp_xbar_mux_001    ; --         ;
-; IP_TOOL_VERSION                     ; 12.0                                                          ; --            ; nios_system_sdram_0             ; --         ;
-; IP_TOOL_VERSION                     ; 12.0                                                          ; --            ; nios_system_switches            ; --         ;
-; MAX_CORE_JUNCTION_TEMP              ; 85                                                            ; --            ; --                              ; --         ;
-; MIN_CORE_JUNCTION_TEMP              ; 0                                                             ; --            ; --                              ; --         ;
-; MISC_FILE                           ; nios_system/synthesis/../../nios_system.sopcinfo              ; --            ; --                              ; --         ;
-; MISC_FILE                           ; nios_system/synthesis/../../nios_system.qsys                  ; --            ; --                              ; --         ;
-; PARTITION_COLOR                     ; 16764057                                                      ; --            ; --                              ; Top        ;
-; PARTITION_FITTER_PRESERVATION_LEVEL ; PLACEMENT_AND_ROUTING                                         ; --            ; --                              ; Top        ;
-; PARTITION_NETLIST_TYPE              ; SOURCE                                                        ; --            ; --                              ; Top        ;
-; SLD_INFO                            ; QSYS_NAME nios_system HAS_SOPCINFO 1 GENERATION_ID 1379176157 ; --            ; nios_system                     ; --         ;
-; SYNTHESIS_ONLY_QIP                  ; On                                                            ; --            ; --                              ; --         ;
-+-------------------------------------+---------------------------------------------------------------+---------------+---------------------------------+------------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Flow Non-Default Global Settings                                                                                                                                                  ;
++-------------------------------------+---------------------------------------------------------------------+---------------+------------------------------------------+------------+
+; Assignment Name                     ; Value                                                               ; Default Value ; Entity Name                              ; Section Id ;
++-------------------------------------+---------------------------------------------------------------------+---------------+------------------------------------------+------------+
+; COMPILER_SIGNATURE_ID               ; 119236233065782.138007590306316                                     ; --            ; --                                       ; --         ;
+; IP_TOOL_ENV                         ; qsys                                                                ; --            ; altera_avalon_sc_fifo                    ; --         ;
+; IP_TOOL_ENV                         ; qsys                                                                ; --            ; altera_avalon_st_handshake_clock_crosser ; --         ;
+; IP_TOOL_ENV                         ; qsys                                                                ; --            ; altera_merlin_burst_adapter              ; --         ;
+; IP_TOOL_ENV                         ; qsys                                                                ; --            ; altera_merlin_master_agent               ; --         ;
+; IP_TOOL_ENV                         ; qsys                                                                ; --            ; altera_merlin_master_translator          ; --         ;
+; IP_TOOL_ENV                         ; qsys                                                                ; --            ; altera_merlin_slave_agent                ; --         ;
+; IP_TOOL_ENV                         ; qsys                                                                ; --            ; altera_merlin_slave_translator           ; --         ;
+; IP_TOOL_ENV                         ; qsys                                                                ; --            ; altera_merlin_traffic_limiter            ; --         ;
+; IP_TOOL_ENV                         ; qsys                                                                ; --            ; altera_merlin_width_adapter              ; --         ;
+; IP_TOOL_ENV                         ; qsys                                                                ; --            ; altera_reset_controller                  ; --         ;
+; IP_TOOL_ENV                         ; qsys                                                                ; --            ; nios_system                              ; --         ;
+; IP_TOOL_ENV                         ; qsys                                                                ; --            ; nios_system_HAL_system_timer             ; --         ;
+; IP_TOOL_ENV                         ; qsys                                                                ; --            ; nios_system_LEDs                         ; --         ;
+; IP_TOOL_ENV                         ; qsys                                                                ; --            ; nios_system_addr_router                  ; --         ;
+; IP_TOOL_ENV                         ; qsys                                                                ; --            ; nios_system_addr_router_001              ; --         ;
+; IP_TOOL_ENV                         ; qsys                                                                ; --            ; nios_system_addr_router_002              ; --         ;
+; IP_TOOL_ENV                         ; qsys                                                                ; --            ; nios_system_cmd_xbar_demux               ; --         ;
+; IP_TOOL_ENV                         ; qsys                                                                ; --            ; nios_system_cmd_xbar_demux_001           ; --         ;
+; IP_TOOL_ENV                         ; qsys                                                                ; --            ; nios_system_cmd_xbar_demux_002           ; --         ;
+; IP_TOOL_ENV                         ; qsys                                                                ; --            ; nios_system_cmd_xbar_mux                 ; --         ;
+; IP_TOOL_ENV                         ; qsys                                                                ; --            ; nios_system_cmd_xbar_mux_001             ; --         ;
+; IP_TOOL_ENV                         ; qsys                                                                ; --            ; nios_system_id_router                    ; --         ;
+; IP_TOOL_ENV                         ; qsys                                                                ; --            ; nios_system_id_router_001                ; --         ;
+; IP_TOOL_ENV                         ; qsys                                                                ; --            ; nios_system_id_router_002                ; --         ;
+; IP_TOOL_ENV                         ; qsys                                                                ; --            ; nios_system_id_router_003                ; --         ;
+; IP_TOOL_ENV                         ; qsys                                                                ; --            ; nios_system_id_router_010                ; --         ;
+; IP_TOOL_ENV                         ; qsys                                                                ; --            ; nios_system_irq_mapper                   ; --         ;
+; IP_TOOL_ENV                         ; qsys                                                                ; --            ; nios_system_jtag_uart_0                  ; --         ;
+; IP_TOOL_ENV                         ; qsys                                                                ; --            ; nios_system_keys                         ; --         ;
+; IP_TOOL_ENV                         ; qsys                                                                ; --            ; nios_system_nios2_qsys_0                 ; --         ;
+; IP_TOOL_ENV                         ; qsys                                                                ; --            ; nios_system_processorGpIn                ; --         ;
+; IP_TOOL_ENV                         ; qsys                                                                ; --            ; nios_system_processorGpOut               ; --         ;
+; IP_TOOL_ENV                         ; qsys                                                                ; --            ; nios_system_rsp_xbar_demux               ; --         ;
+; IP_TOOL_ENV                         ; qsys                                                                ; --            ; nios_system_rsp_xbar_demux_001           ; --         ;
+; IP_TOOL_ENV                         ; qsys                                                                ; --            ; nios_system_rsp_xbar_demux_002           ; --         ;
+; IP_TOOL_ENV                         ; qsys                                                                ; --            ; nios_system_rsp_xbar_demux_003           ; --         ;
+; IP_TOOL_ENV                         ; qsys                                                                ; --            ; nios_system_rsp_xbar_mux                 ; --         ;
+; IP_TOOL_ENV                         ; qsys                                                                ; --            ; nios_system_rsp_xbar_mux_001             ; --         ;
+; IP_TOOL_ENV                         ; qsys                                                                ; --            ; nios_system_sdram_0                      ; --         ;
+; IP_TOOL_ENV                         ; qsys                                                                ; --            ; nios_system_switches                     ; --         ;
+; IP_TOOL_NAME                        ; RAM: 2-PORT                                                         ; --            ; --                                       ; --         ;
+; IP_TOOL_NAME                        ; altera_avalon_sc_fifo                                               ; --            ; altera_avalon_sc_fifo                    ; --         ;
+; IP_TOOL_NAME                        ; altera_avalon_st_handshake_clock_crosser                            ; --            ; altera_avalon_st_handshake_clock_crosser ; --         ;
+; IP_TOOL_NAME                        ; altera_merlin_burst_adapter                                         ; --            ; altera_merlin_burst_adapter              ; --         ;
+; IP_TOOL_NAME                        ; altera_merlin_master_agent                                          ; --            ; altera_merlin_master_agent               ; --         ;
+; IP_TOOL_NAME                        ; altera_merlin_master_translator                                     ; --            ; altera_merlin_master_translator          ; --         ;
+; IP_TOOL_NAME                        ; altera_merlin_slave_agent                                           ; --            ; altera_merlin_slave_agent                ; --         ;
+; IP_TOOL_NAME                        ; altera_merlin_slave_translator                                      ; --            ; altera_merlin_slave_translator           ; --         ;
+; IP_TOOL_NAME                        ; altera_merlin_traffic_limiter                                       ; --            ; altera_merlin_traffic_limiter            ; --         ;
+; IP_TOOL_NAME                        ; altera_merlin_width_adapter                                         ; --            ; altera_merlin_width_adapter              ; --         ;
+; IP_TOOL_NAME                        ; altera_reset_controller                                             ; --            ; altera_reset_controller                  ; --         ;
+; IP_TOOL_NAME                        ; qsys                                                                ; --            ; nios_system                              ; --         ;
+; IP_TOOL_NAME                        ; altera_avalon_timer                                                 ; --            ; nios_system_HAL_system_timer             ; --         ;
+; IP_TOOL_NAME                        ; altera_avalon_pio                                                   ; --            ; nios_system_LEDs                         ; --         ;
+; IP_TOOL_NAME                        ; altera_merlin_router                                                ; --            ; nios_system_addr_router                  ; --         ;
+; IP_TOOL_NAME                        ; altera_merlin_router                                                ; --            ; nios_system_addr_router_001              ; --         ;
+; IP_TOOL_NAME                        ; altera_merlin_router                                                ; --            ; nios_system_addr_router_002              ; --         ;
+; IP_TOOL_NAME                        ; altera_merlin_demultiplexer                                         ; --            ; nios_system_cmd_xbar_demux               ; --         ;
+; IP_TOOL_NAME                        ; altera_merlin_demultiplexer                                         ; --            ; nios_system_cmd_xbar_demux_001           ; --         ;
+; IP_TOOL_NAME                        ; altera_merlin_demultiplexer                                         ; --            ; nios_system_cmd_xbar_demux_002           ; --         ;
+; IP_TOOL_NAME                        ; altera_merlin_multiplexer                                           ; --            ; nios_system_cmd_xbar_mux                 ; --         ;
+; IP_TOOL_NAME                        ; altera_merlin_multiplexer                                           ; --            ; nios_system_cmd_xbar_mux_001             ; --         ;
+; IP_TOOL_NAME                        ; altera_merlin_router                                                ; --            ; nios_system_id_router                    ; --         ;
+; IP_TOOL_NAME                        ; altera_merlin_router                                                ; --            ; nios_system_id_router_001                ; --         ;
+; IP_TOOL_NAME                        ; altera_merlin_router                                                ; --            ; nios_system_id_router_002                ; --         ;
+; IP_TOOL_NAME                        ; altera_merlin_router                                                ; --            ; nios_system_id_router_003                ; --         ;
+; IP_TOOL_NAME                        ; altera_merlin_router                                                ; --            ; nios_system_id_router_010                ; --         ;
+; IP_TOOL_NAME                        ; altera_irq_mapper                                                   ; --            ; nios_system_irq_mapper                   ; --         ;
+; IP_TOOL_NAME                        ; altera_avalon_jtag_uart                                             ; --            ; nios_system_jtag_uart_0                  ; --         ;
+; IP_TOOL_NAME                        ; altera_avalon_pio                                                   ; --            ; nios_system_keys                         ; --         ;
+; IP_TOOL_NAME                        ; altera_nios2_qsys                                                   ; --            ; nios_system_nios2_qsys_0                 ; --         ;
+; IP_TOOL_NAME                        ; altera_avalon_pio                                                   ; --            ; nios_system_processorGpIn                ; --         ;
+; IP_TOOL_NAME                        ; altera_avalon_pio                                                   ; --            ; nios_system_processorGpOut               ; --         ;
+; IP_TOOL_NAME                        ; altera_merlin_demultiplexer                                         ; --            ; nios_system_rsp_xbar_demux               ; --         ;
+; IP_TOOL_NAME                        ; altera_merlin_demultiplexer                                         ; --            ; nios_system_rsp_xbar_demux_001           ; --         ;
+; IP_TOOL_NAME                        ; altera_merlin_demultiplexer                                         ; --            ; nios_system_rsp_xbar_demux_002           ; --         ;
+; IP_TOOL_NAME                        ; altera_merlin_demultiplexer                                         ; --            ; nios_system_rsp_xbar_demux_003           ; --         ;
+; IP_TOOL_NAME                        ; altera_merlin_multiplexer                                           ; --            ; nios_system_rsp_xbar_mux                 ; --         ;
+; IP_TOOL_NAME                        ; altera_merlin_multiplexer                                           ; --            ; nios_system_rsp_xbar_mux_001             ; --         ;
+; IP_TOOL_NAME                        ; altera_avalon_new_sdram_controller                                  ; --            ; nios_system_sdram_0                      ; --         ;
+; IP_TOOL_NAME                        ; altera_avalon_pio                                                   ; --            ; nios_system_switches                     ; --         ;
+; IP_TOOL_VERSION                     ; 8.0                                                                 ; --            ; --                                       ; --         ;
+; IP_TOOL_VERSION                     ; 12.0                                                                ; --            ; altera_avalon_sc_fifo                    ; --         ;
+; IP_TOOL_VERSION                     ; 12.0                                                                ; --            ; altera_avalon_st_handshake_clock_crosser ; --         ;
+; IP_TOOL_VERSION                     ; 12.0                                                                ; --            ; altera_merlin_burst_adapter              ; --         ;
+; IP_TOOL_VERSION                     ; 12.0                                                                ; --            ; altera_merlin_master_agent               ; --         ;
+; IP_TOOL_VERSION                     ; 12.0                                                                ; --            ; altera_merlin_master_translator          ; --         ;
+; IP_TOOL_VERSION                     ; 12.0                                                                ; --            ; altera_merlin_slave_agent                ; --         ;
+; IP_TOOL_VERSION                     ; 12.0                                                                ; --            ; altera_merlin_slave_translator           ; --         ;
+; IP_TOOL_VERSION                     ; 12.0                                                                ; --            ; altera_merlin_traffic_limiter            ; --         ;
+; IP_TOOL_VERSION                     ; 12.0                                                                ; --            ; altera_merlin_width_adapter              ; --         ;
+; IP_TOOL_VERSION                     ; 12.0                                                                ; --            ; altera_reset_controller                  ; --         ;
+; IP_TOOL_VERSION                     ; 12.0sp2                                                             ; --            ; nios_system                              ; --         ;
+; IP_TOOL_VERSION                     ; 12.0                                                                ; --            ; nios_system_HAL_system_timer             ; --         ;
+; IP_TOOL_VERSION                     ; 12.0                                                                ; --            ; nios_system_LEDs                         ; --         ;
+; IP_TOOL_VERSION                     ; 12.0                                                                ; --            ; nios_system_addr_router                  ; --         ;
+; IP_TOOL_VERSION                     ; 12.0                                                                ; --            ; nios_system_addr_router_001              ; --         ;
+; IP_TOOL_VERSION                     ; 12.0                                                                ; --            ; nios_system_addr_router_002              ; --         ;
+; IP_TOOL_VERSION                     ; 12.0                                                                ; --            ; nios_system_cmd_xbar_demux               ; --         ;
+; IP_TOOL_VERSION                     ; 12.0                                                                ; --            ; nios_system_cmd_xbar_demux_001           ; --         ;
+; IP_TOOL_VERSION                     ; 12.0                                                                ; --            ; nios_system_cmd_xbar_demux_002           ; --         ;
+; IP_TOOL_VERSION                     ; 12.0                                                                ; --            ; nios_system_cmd_xbar_mux                 ; --         ;
+; IP_TOOL_VERSION                     ; 12.0                                                                ; --            ; nios_system_cmd_xbar_mux_001             ; --         ;
+; IP_TOOL_VERSION                     ; 12.0                                                                ; --            ; nios_system_id_router                    ; --         ;
+; IP_TOOL_VERSION                     ; 12.0                                                                ; --            ; nios_system_id_router_001                ; --         ;
+; IP_TOOL_VERSION                     ; 12.0                                                                ; --            ; nios_system_id_router_002                ; --         ;
+; IP_TOOL_VERSION                     ; 12.0                                                                ; --            ; nios_system_id_router_003                ; --         ;
+; IP_TOOL_VERSION                     ; 12.0                                                                ; --            ; nios_system_id_router_010                ; --         ;
+; IP_TOOL_VERSION                     ; 12.0                                                                ; --            ; nios_system_irq_mapper                   ; --         ;
+; IP_TOOL_VERSION                     ; 12.0                                                                ; --            ; nios_system_jtag_uart_0                  ; --         ;
+; IP_TOOL_VERSION                     ; 12.0                                                                ; --            ; nios_system_keys                         ; --         ;
+; IP_TOOL_VERSION                     ; 12.0                                                                ; --            ; nios_system_nios2_qsys_0                 ; --         ;
+; IP_TOOL_VERSION                     ; 12.0                                                                ; --            ; nios_system_processorGpIn                ; --         ;
+; IP_TOOL_VERSION                     ; 12.0                                                                ; --            ; nios_system_processorGpOut               ; --         ;
+; IP_TOOL_VERSION                     ; 12.0                                                                ; --            ; nios_system_rsp_xbar_demux               ; --         ;
+; IP_TOOL_VERSION                     ; 12.0                                                                ; --            ; nios_system_rsp_xbar_demux_001           ; --         ;
+; IP_TOOL_VERSION                     ; 12.0                                                                ; --            ; nios_system_rsp_xbar_demux_002           ; --         ;
+; IP_TOOL_VERSION                     ; 12.0                                                                ; --            ; nios_system_rsp_xbar_demux_003           ; --         ;
+; IP_TOOL_VERSION                     ; 12.0                                                                ; --            ; nios_system_rsp_xbar_mux                 ; --         ;
+; IP_TOOL_VERSION                     ; 12.0                                                                ; --            ; nios_system_rsp_xbar_mux_001             ; --         ;
+; IP_TOOL_VERSION                     ; 12.0                                                                ; --            ; nios_system_sdram_0                      ; --         ;
+; IP_TOOL_VERSION                     ; 12.0                                                                ; --            ; nios_system_switches                     ; --         ;
+; MAX_CORE_JUNCTION_TEMP              ; 85                                                                  ; --            ; --                                       ; --         ;
+; MIN_CORE_JUNCTION_TEMP              ; 0                                                                   ; --            ; --                                       ; --         ;
+; MISC_FILE                           ; nios_system/synthesis/../../nios_system.sopcinfo                    ; --            ; --                                       ; --         ;
+; MISC_FILE                           ; nios_system/synthesis/../../nios_system.qsys                        ; --            ; --                                       ; --         ;
+; MISC_FILE                           ; nios_system/synthesis/submodules/Altera_UP_SD_Card_Memory_Block.bsf ; --            ; --                                       ; --         ;
+; MISC_FILE                           ; nios_system/synthesis/submodules/Altera_UP_SD_Card_Memory_Block.cmp ; --            ; --                                       ; --         ;
+; PARTITION_COLOR                     ; 16764057                                                            ; --            ; --                                       ; Top        ;
+; PARTITION_FITTER_PRESERVATION_LEVEL ; PLACEMENT_AND_ROUTING                                               ; --            ; --                                       ; Top        ;
+; PARTITION_NETLIST_TYPE              ; SOURCE                                                              ; --            ; --                                       ; Top        ;
+; SLD_INFO                            ; QSYS_NAME nios_system HAS_SOPCINFO 1 GENERATION_ID 1380075446       ; --            ; nios_system                              ; --         ;
+; SYNTHESIS_ONLY_QIP                  ; On                                                                  ; --            ; --                                       ; --         ;
++-------------------------------------+---------------------------------------------------------------------+---------------+------------------------------------------+------------+
 
 
 +-------------------------------------------------------------------------------------------------------------------------------+
@@ -202,11 +215,11 @@ applicable agreement for further details.
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis      ; 00:01:11     ; 1.0                     ; 468 MB              ; 00:00:55                           ;
-; Fitter                    ; 00:00:42     ; 1.0                     ; 486 MB              ; 00:00:42                           ;
-; Assembler                 ; 00:00:05     ; 1.0                     ; 338 MB              ; 00:00:05                           ;
-; TimeQuest Timing Analyzer ; 00:00:07     ; 1.0                     ; 336 MB              ; 00:00:05                           ;
-; Total                     ; 00:02:05     ; --                      ; --                  ; 00:01:47                           ;
+; Analysis & Synthesis      ; 00:01:05     ; 1.0                     ; 492 MB              ; 00:00:59                           ;
+; Fitter                    ; 00:00:52     ; 1.0                     ; 505 MB              ; 00:00:52                           ;
+; Assembler                 ; 00:00:06     ; 1.0                     ; 352 MB              ; 00:00:05                           ;
+; TimeQuest Timing Analyzer ; 00:00:08     ; 1.0                     ; 356 MB              ; 00:00:06                           ;
+; Total                     ; 00:02:11     ; --                      ; --                  ; 00:02:02                           ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

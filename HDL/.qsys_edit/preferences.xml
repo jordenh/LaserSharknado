@@ -3,20 +3,20 @@
  <debug showDebugMenu="0" />
  <systemtable>
   <columns>
-   <connections preferredWidth="175" />
+   <connections preferredWidth="303" />
    <irq preferredWidth="34" />
    <inputclock preferredWidth="103" />
   </columns>
  </systemtable>
  <clocktable>
   <columns>
-   <clockname preferredWidth="441" />
-   <clocksource preferredWidth="441" />
-   <frequency preferredWidth="422" />
+   <clockname preferredWidth="351" />
+   <clocksource preferredWidth="350" />
+   <frequency preferredWidth="350" />
   </columns>
  </clocktable>
  <library
-   expandedCategories="Library/Peripherals,Project,Library/Peripherals/Microcontroller Peripherals,Library" />
- <window width="1616" height="876" x="-8" y="-8" />
+   expandedCategories="Library/Peripherals/Microcontroller Peripherals,Library,Library/Peripherals,Project" />
+ <window width="1363" height="728" x="3" y="0" />
  <hdlexample language="VERILOG" />
 </preferences>

@@ -33,22 +33,22 @@ module nios_system_switches (
   output  [ 31: 0] readdata;
   input   [  1: 0] address;
   input            clk;
-  input   [  7: 0] in_port;
+  input   [ 17: 0] in_port;
   input            reset_n;
 
   wire             clk_en;
-  wire    [  7: 0] data_in;
-  wire    [  7: 0] read_mux_out;
+  wire    [ 17: 0] data_in;
+  wire    [ 17: 0] read_mux_out;
   reg     [ 31: 0] readdata;
   assign clk_en = 1;
   //s1, which is an e_avalon_slave
-  assign read_mux_out = {8 {(address == 0)}} & data_in;
+  assign read_mux_out = {18 {(address == 0)}} & data_in;
   always @(posedge clk or negedge reset_n)
     begin
       if (reset_n == 0)
           readdata <= 0;
       else if (clk_en)
-          readdata <= {{{32 - 8}{1'b0}},read_mux_out};
+          readdata <= {{{32 - 18}{1'b0}},read_mux_out};
     end
 
 

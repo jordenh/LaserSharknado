@@ -2,10 +2,10 @@
 <sch:Settings xmlns:sch="http://www.altera.com/embeddedsw/bsp/schema">
         <BspType>hal</BspType>
         <BspVersion>default</BspVersion>
-        <BspGeneratedTimeStamp>Sep 12, 2013 6:16:09 PM</BspGeneratedTimeStamp>
-        <BspGeneratedUnixTimeStamp>1379034969049</BspGeneratedUnixTimeStamp>
-        <BspGeneratedLocation>C:\Users\Gord\Documents\repos\LaserSharknado\LaserSharknado_bsp\</BspGeneratedLocation>
-        <BspSettingsFile>C:\Users\Gord\Documents\repos\LaserSharknado\LaserSharknado_bsp\settings.bsp</BspSettingsFile>
+        <BspGeneratedTimeStamp>19-Sep-2013 6:04:10 PM</BspGeneratedTimeStamp>
+        <BspGeneratedUnixTimeStamp>1379639050717</BspGeneratedUnixTimeStamp>
+        <BspGeneratedLocation>C:\Users\SarahLynn\Documents\School\School3\EECE381\LaserSharknado\LaserSharknado_bsp</BspGeneratedLocation>
+        <BspSettingsFile>settings.bsp</BspSettingsFile>
         <SopcDesignFile>..\HDL\nios_system.sopcinfo</SopcDesignFile>
         <JdiFile>default</JdiFile>
         <Cpu>nios2_qsys_0</Cpu>
@@ -899,9 +899,33 @@
                 <attributes>printable</attributes>
         </MemoryMap>
         <MemoryMap>
+                <slaveDescriptor>char_drawer_avalon_char_control_slave</slaveDescriptor>
+                <addressRange>0x01001098 - 0x0100109F</addressRange>
+                <addressSpan>8</addressSpan>
+                <attributes/>
+        </MemoryMap>
+        <MemoryMap>
+                <slaveDescriptor>pixel_buffer_dma</slaveDescriptor>
+                <addressRange>0x010010A0 - 0x010010AF</addressRange>
+                <addressSpan>16</addressSpan>
+                <attributes/>
+        </MemoryMap>
+        <MemoryMap>
                 <slaveDescriptor>character_lcd_0</slaveDescriptor>
-                <addressRange>0x01001098 - 0x01001099</addressRange>
+                <addressRange>0x010010B0 - 0x010010B1</addressRange>
                 <addressSpan>2</addressSpan>
+                <attributes/>
+        </MemoryMap>
+        <MemoryMap>
+                <slaveDescriptor>char_drawer_avalon_char_buffer_slave</slaveDescriptor>
+                <addressRange>0x01002000 - 0x01003FFF</addressRange>
+                <addressSpan>8192</addressSpan>
+                <attributes/>
+        </MemoryMap>
+        <MemoryMap>
+                <slaveDescriptor>pixel_buffer</slaveDescriptor>
+                <addressRange>0x01080000 - 0x010FFFFF</addressRange>
+                <addressSpan>524288</addressSpan>
                 <attributes/>
         </MemoryMap>
         <LinkerSection>

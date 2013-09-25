@@ -4,7 +4,7 @@
  * Machine generated for CPU 'nios2_qsys_0' in SOPC Builder design 'nios_system'
  * SOPC Builder design path: ../HDL/nios_system.sopcinfo
  *
- * Generated: Thu Sep 12 18:16:09 PDT 2013
+ * Generated: Thu Sep 19 17:18:56 PDT 2013
  */
 
 /*
@@ -133,6 +133,9 @@
 #define __ALTERA_AVALON_TIMER
 #define __ALTERA_NIOS2_QSYS
 #define __ALTERA_UP_AVALON_CHARACTER_LCD
+#define __ALTERA_UP_AVALON_SRAM
+#define __ALTERA_UP_AVALON_VIDEO_CHARACTER_BUFFER_WITH_DMA
+#define __ALTERA_UP_AVALON_VIDEO_PIXEL_BUFFER_DMA
 
 
 /*
@@ -225,12 +228,40 @@
 
 
 /*
+ * char_drawer_avalon_char_buffer_slave configuration
+ *
+ */
+
+#define ALT_MODULE_CLASS_char_drawer_avalon_char_buffer_slave altera_up_avalon_video_character_buffer_with_dma
+#define CHAR_DRAWER_AVALON_CHAR_BUFFER_SLAVE_BASE 0x1002000
+#define CHAR_DRAWER_AVALON_CHAR_BUFFER_SLAVE_IRQ -1
+#define CHAR_DRAWER_AVALON_CHAR_BUFFER_SLAVE_IRQ_INTERRUPT_CONTROLLER_ID -1
+#define CHAR_DRAWER_AVALON_CHAR_BUFFER_SLAVE_NAME "/dev/char_drawer_avalon_char_buffer_slave"
+#define CHAR_DRAWER_AVALON_CHAR_BUFFER_SLAVE_SPAN 8192
+#define CHAR_DRAWER_AVALON_CHAR_BUFFER_SLAVE_TYPE "altera_up_avalon_video_character_buffer_with_dma"
+
+
+/*
+ * char_drawer_avalon_char_control_slave configuration
+ *
+ */
+
+#define ALT_MODULE_CLASS_char_drawer_avalon_char_control_slave altera_up_avalon_video_character_buffer_with_dma
+#define CHAR_DRAWER_AVALON_CHAR_CONTROL_SLAVE_BASE 0x1001098
+#define CHAR_DRAWER_AVALON_CHAR_CONTROL_SLAVE_IRQ -1
+#define CHAR_DRAWER_AVALON_CHAR_CONTROL_SLAVE_IRQ_INTERRUPT_CONTROLLER_ID -1
+#define CHAR_DRAWER_AVALON_CHAR_CONTROL_SLAVE_NAME "/dev/char_drawer_avalon_char_control_slave"
+#define CHAR_DRAWER_AVALON_CHAR_CONTROL_SLAVE_SPAN 8
+#define CHAR_DRAWER_AVALON_CHAR_CONTROL_SLAVE_TYPE "altera_up_avalon_video_character_buffer_with_dma"
+
+
+/*
  * character_lcd_0 configuration
  *
  */
 
 #define ALT_MODULE_CLASS_character_lcd_0 altera_up_avalon_character_lcd
-#define CHARACTER_LCD_0_BASE 0x1001098
+#define CHARACTER_LCD_0_BASE 0x10010b0
 #define CHARACTER_LCD_0_IRQ -1
 #define CHARACTER_LCD_0_IRQ_INTERRUPT_CONTROLLER_ID -1
 #define CHARACTER_LCD_0_NAME "/dev/character_lcd_0"
@@ -317,6 +348,34 @@
 #define KEYS_RESET_VALUE 0x0
 #define KEYS_SPAN 16
 #define KEYS_TYPE "altera_avalon_pio"
+
+
+/*
+ * pixel_buffer configuration
+ *
+ */
+
+#define ALT_MODULE_CLASS_pixel_buffer altera_up_avalon_sram
+#define PIXEL_BUFFER_BASE 0x1080000
+#define PIXEL_BUFFER_IRQ -1
+#define PIXEL_BUFFER_IRQ_INTERRUPT_CONTROLLER_ID -1
+#define PIXEL_BUFFER_NAME "/dev/pixel_buffer"
+#define PIXEL_BUFFER_SPAN 524288
+#define PIXEL_BUFFER_TYPE "altera_up_avalon_sram"
+
+
+/*
+ * pixel_buffer_dma configuration
+ *
+ */
+
+#define ALT_MODULE_CLASS_pixel_buffer_dma altera_up_avalon_video_pixel_buffer_dma
+#define PIXEL_BUFFER_DMA_BASE 0x10010a0
+#define PIXEL_BUFFER_DMA_IRQ -1
+#define PIXEL_BUFFER_DMA_IRQ_INTERRUPT_CONTROLLER_ID -1
+#define PIXEL_BUFFER_DMA_NAME "/dev/pixel_buffer_dma"
+#define PIXEL_BUFFER_DMA_SPAN 16
+#define PIXEL_BUFFER_DMA_TYPE "altera_up_avalon_video_pixel_buffer_dma"
 
 
 /*

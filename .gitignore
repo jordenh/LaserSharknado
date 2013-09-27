@@ -1,11 +1,11 @@
 #First ignore everything!
 
-#*
+*
 
 #Now, whitelist anything that's valued.
 
-#!*.c
-#!*.h
-#!*.vhd
-#!*.bmp
-#!*.wav
+!*.c
+!*.h
+!*.vhd
+!*.bmp
+!*.wav

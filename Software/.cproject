@@ -201,30 +201,6 @@
 							</tool>
 						</toolChain>
 					</folderInfo>
-					<folderInfo id="preference.org.eclipse.cdt.managedbuilder.core.configurationDataProvider.1761286602.1444572207" name="/" resourcePath="Excercises">
-						<toolChain id="altera.nios2.mingw.gcc4.1461610013" name="MinGW Nios II GCC4" superClass="altera.nios2.mingw.gcc4" unusedChildren="">
-							<targetPlatform id="altera.nios2.mingw.gcc4" name="Nios II" superClass="altera.nios2.mingw.gcc4"/>
-							<tool id="cdt.managedbuild.tool.gnu.assembler.cygwin.base.1829901784" name="GCC Assembler" superClass="cdt.managedbuild.tool.gnu.assembler.cygwin.base.907924396">
-								<option id="gnu.both.asm.option.include.paths.1250955624" name="Include paths (-I)" superClass="gnu.both.asm.option.include.paths"/>
-								<inputType id="cdt.managedbuild.tool.gnu.assembler.input.1106685623" superClass="cdt.managedbuild.tool.gnu.assembler.input"/>
-							</tool>
-							<tool id="cdt.managedbuild.tool.gnu.archiver.cygwin.base.927924899" name="GCC Archiver" superClass="cdt.managedbuild.tool.gnu.archiver.cygwin.base.1409641553"/>
-							<tool id="cdt.managedbuild.tool.gnu.cpp.compiler.cygwin.base.492492404" name="Cygwin C++ Compiler" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.cygwin.base.1326951343">
-								<option id="gnu.cpp.compiler.option.include.paths.1185687363" name="Include paths (-I)" superClass="gnu.cpp.compiler.option.include.paths" valueType="includePath">
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/LaserSharknado/Exercises}&quot;"/>
-								</option>
-								<inputType id="cdt.managedbuild.tool.gnu.cpp.compiler.input.cygwin.72008611" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.input.cygwin"/>
-							</tool>
-							<tool id="cdt.managedbuild.tool.gnu.c.compiler.cygwin.base.1086401938" name="Cygwin C Compiler" superClass="cdt.managedbuild.tool.gnu.c.compiler.cygwin.base.703112179">
-								<option id="gnu.c.compiler.option.include.paths.1329517825" name="Include paths (-I)" superClass="gnu.c.compiler.option.include.paths" valueType="includePath">
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/LaserSharknado/Exercises}&quot;"/>
-								</option>
-								<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.cygwin.1122629050" superClass="cdt.managedbuild.tool.gnu.c.compiler.input.cygwin"/>
-							</tool>
-							<tool id="cdt.managedbuild.tool.gnu.c.linker.cygwin.base.1314613985" name="Cygwin C Linker" superClass="cdt.managedbuild.tool.gnu.c.linker.cygwin.base.516750775"/>
-							<tool id="cdt.managedbuild.tool.gnu.cpp.linker.cygwin.base.1940244740" name="Cygwin C++ Linker" superClass="cdt.managedbuild.tool.gnu.cpp.linker.cygwin.base.1335412687"/>
-						</toolChain>
-					</folderInfo>
 				</configuration>
 			</storageModule>
 			<storageModule buildSystemId="org.eclipse.cdt.managedbuilder.core.configurationDataProvider" id="preference.org.eclipse.cdt.managedbuilder.core.configurationDataProvider.1761286602" moduleId="org.eclipse.cdt.core.settings" name="Nios II">

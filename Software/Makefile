@@ -144,7 +144,6 @@ ELF := LaserSharknado.elf
 # Paths to C, C++, and assembly source files.
 C_SRCS += hello_world.c
 C_SRCS += timer.c
-C_SRCS += Excercises/excercise2.c
 C_SRCS += vga.c
 C_SRCS += player.c
 C_SRCS += sd_card.c

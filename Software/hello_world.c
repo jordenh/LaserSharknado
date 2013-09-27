@@ -27,6 +27,10 @@
 
 int main()
 {
+	// Mandatory setup code for peripherals
+	setupAudio();
+	//***
+
 	alt_up_character_lcd_dev * char_lcd_dev;
 	// open the Character LCD port
 	char_lcd_dev = alt_up_character_lcd_open_dev ("/dev/character_lcd_0");//("/dev/Char_LCD_16x2");
@@ -44,6 +48,9 @@ int main()
 	alt_up_character_lcd_string(char_lcd_dev, second_row);
 
 	printf("hello, world!\n");
+
+
+	/*
 	alt_up_pixel_buffer_dma_dev* pixel_buffer = setUp();
 	clearScreen(pixel_buffer);
 	drawLine(pixel_buffer, 64, 0, 64, 240, 0xFFFF);
@@ -55,7 +62,7 @@ int main()
 
 	char keys;
 	setHardwareTimerPeriod(5 * CLOCK_FREQ);
-	startHardwareTimer();
+	startHardwareTimer(); */
 
 /*	while (1)
 	{
@@ -64,10 +71,8 @@ int main()
 		IOWR_16DIRECT(0x1001070, 0, keys);
 	}*/
 
+	playLaser1();
 	audioTest();
-
-	timer_test();
-	timeMatrixMultiply();
 
 	return 0;
 }

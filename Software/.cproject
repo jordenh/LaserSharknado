@@ -14,7 +14,7 @@
 							<targetPlatform id="altera.nios2.mingw.gcc4.296940409" name="Nios II" superClass="altera.nios2.mingw.gcc4"/>
 							<builder buildPath="${workspace_loc://LaserSharknado}" id="cdt.managedbuild.target.gnu.builder.cygwin.base.959760092" keepEnvironmentInBuildfile="false" managedBuildOn="false" name="Gnu Make Builder" superClass="cdt.managedbuild.target.gnu.builder.cygwin.base"/>
 							<tool id="cdt.managedbuild.tool.gnu.assembler.cygwin.base.907924396" name="GCC Assembler" superClass="cdt.managedbuild.tool.gnu.assembler.cygwin.base">
-								<option id="gnu.both.asm.option.include.paths.1640181517" name="Include paths (-I)" superClass="gnu.both.asm.option.include.paths" valueType="includePath"/>
+								<option id="gnu.both.asm.option.include.paths.1640181517" name="Include paths (-I)" superClass="gnu.both.asm.option.include.paths"/>
 								<inputType id="cdt.managedbuild.tool.gnu.assembler.input.873511346" superClass="cdt.managedbuild.tool.gnu.assembler.input"/>
 							</tool>
 							<tool id="cdt.managedbuild.tool.gnu.archiver.cygwin.base.1409641553" name="GCC Archiver" superClass="cdt.managedbuild.tool.gnu.archiver.cygwin.base"/>
@@ -205,7 +205,7 @@
 						<toolChain id="altera.nios2.mingw.gcc4.1461610013" name="MinGW Nios II GCC4" superClass="altera.nios2.mingw.gcc4" unusedChildren="">
 							<targetPlatform id="altera.nios2.mingw.gcc4" name="Nios II" superClass="altera.nios2.mingw.gcc4"/>
 							<tool id="cdt.managedbuild.tool.gnu.assembler.cygwin.base.1829901784" name="GCC Assembler" superClass="cdt.managedbuild.tool.gnu.assembler.cygwin.base.907924396">
-								<option id="gnu.both.asm.option.include.paths.1250955624" name="Include paths (-I)" superClass="gnu.both.asm.option.include.paths" valueType="includePath"/>
+								<option id="gnu.both.asm.option.include.paths.1250955624" name="Include paths (-I)" superClass="gnu.both.asm.option.include.paths"/>
 								<inputType id="cdt.managedbuild.tool.gnu.assembler.input.1106685623" superClass="cdt.managedbuild.tool.gnu.assembler.input"/>
 							</tool>
 							<tool id="cdt.managedbuild.tool.gnu.archiver.cygwin.base.927924899" name="GCC Archiver" superClass="cdt.managedbuild.tool.gnu.archiver.cygwin.base.1409641553"/>
@@ -683,6 +683,7 @@
 					</profile>
 				</scannerConfigBuildInfo>
 			</storageModule>
+			<storageModule moduleId="org.eclipse.cdt.internal.ui.text.commentOwnerProjectMappings"/>
 		</cconfiguration>
 	</storageModule>
 	<storageModule moduleId="cdtBuildSystem" version="4.0.0">

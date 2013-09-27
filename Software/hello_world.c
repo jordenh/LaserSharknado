@@ -29,6 +29,7 @@ int main()
 {
 	// Mandatory setup code for peripherals
 	setupAudio();
+	openSdCard();
 	//***
 
 	alt_up_character_lcd_dev * char_lcd_dev;

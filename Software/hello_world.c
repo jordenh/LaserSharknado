@@ -17,10 +17,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "altera_up_avalon_character_lcd.h"
+#include "audio.h"
 #include "timer.h"
+#include "sd_card.h"
 #include "vga.h"
 #include "io.h"
-#include "Excercises/excercise2.h"
 
 #define switches (volatile char *) 0x1001060
 #define leds (char *) 0x1001070
@@ -29,6 +30,7 @@ int main()
 {
 	// Mandatory setup code for peripherals
 	setupAudio();
+	openSdCard();
 	//***
 
 	alt_up_character_lcd_dev * char_lcd_dev;
@@ -67,7 +69,7 @@ int main()
 /*	while (1)
 	{
 		keys = IORD_8DIRECT(0x1001080, 0);
-		//*leds = keys;
+		// *leds = keys;
 		IOWR_16DIRECT(0x1001070, 0, keys);
 	}*/
 

@@ -1,3 +1,5 @@
+#include <stdio.h>
+#include <stdlib.h>
 #include "sd_card.h"
 
 int openSdCard(){
@@ -47,18 +49,35 @@ int readDWord(short int fh) {
 	return ((unsigned short int)byte4 << 24) | ((unsigned short int)byte3 << 16) | ((unsigned short int)byte2 << 8) | (unsigned short int)byte1;
 }
 
-unsigned int getFileLength(const char *fileName) {
+unsigned int getWavFileLength(char *fileName) {
 	unsigned int fileLength = 0;
 
 	short int fileHandle = openFile(fileName);
 	if (fileHandle == -1) {
-		printf("Error occured, unable to open file in 'getFileLength' with name: %s", fileName);
+		printf("Error occurred, unable to open file in 'getFileLength' with name: %s", fileName);
 	}
 
-	while (readByte(fileHandle) != -1) {
-		fileLength++;
+	readPastWavHeader(fileHandle);
+
+	short int wordRead = readWord(fileHandle);
+	//unsigned char firstByte = 0x0000FFFF | wordRead;
+	//unsigned char secondByte = 0x0000FFFF | (wordRead >> 8);
+	while ((short int)wordRead >= 0) {
+		//printf("%c", (unsigned char)byteRead);
+		fileLength += 2;
+		wordRead = readWord(fileHandle);
+	}
+	if ((short int)wordRead < -1) {
+		printf("Error reading bytes from %s\n", fileName);
 	}
 
-	closeFile(fileName);
+	closeFile(fileHandle);
 	return fileLength;
+}
+
+void readPastWavHeader(short int handle) {
+	int i;
+	for (i = 0; i < 44; i++) {
+		readByte(handle);
+	}
 }

@@ -147,6 +147,9 @@ C_SRCS += timer.c
 C_SRCS += Excercises/excercise2.c
 C_SRCS += vga.c
 C_SRCS += player.c
+C_SRCS += sd_card.c
+C_SRCS += audio.c
+C_SRCS += audio_up_hack.c
 CXX_SRCS :=
 ASM_SRCS :=
 
@@ -181,7 +184,7 @@ CRT0 :=
 SYS_LIB :=
 
 # Define path to the root of the BSP.
-BSP_ROOT_DIR := C:\Users\SarahLynn\Documents\School\School3\EECE381\LaserSharknado\LaserSharknado_bsp
+BSP_ROOT_DIR := C:\Users\jorde_000\Documents\GitHub\LaserSharknado\LaserSharknado_bsp
 
 # List of application specific include directories, library directories and library names
 APP_INCLUDE_DIRS :=

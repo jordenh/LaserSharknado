@@ -4,7 +4,7 @@
  * Machine generated for CPU 'nios2_qsys_0' in SOPC Builder design 'nios_system'
  * SOPC Builder design path: ../HDL/nios_system.sopcinfo
  *
- * Generated: Thu Sep 19 17:18:56 PDT 2013
+ * Generated: Thu Sep 26 17:04:07 PDT 2013
  */
 
 /*
@@ -56,6 +56,20 @@
 
 
 /*
+ * Altera_UP_SD_Card_Avalon_Interface_0 configuration
+ *
+ */
+
+#define ALTERA_UP_SD_CARD_AVALON_INTERFACE_0_BASE 0x1001400
+#define ALTERA_UP_SD_CARD_AVALON_INTERFACE_0_IRQ -1
+#define ALTERA_UP_SD_CARD_AVALON_INTERFACE_0_IRQ_INTERRUPT_CONTROLLER_ID -1
+#define ALTERA_UP_SD_CARD_AVALON_INTERFACE_0_NAME "/dev/Altera_UP_SD_Card_Avalon_Interface_0"
+#define ALTERA_UP_SD_CARD_AVALON_INTERFACE_0_SPAN 1024
+#define ALTERA_UP_SD_CARD_AVALON_INTERFACE_0_TYPE "Altera_UP_SD_Card_Avalon_Interface"
+#define ALT_MODULE_CLASS_Altera_UP_SD_Card_Avalon_Interface_0 Altera_UP_SD_Card_Avalon_Interface
+
+
+/*
  * CPU configuration
  *
  */
@@ -70,7 +84,7 @@
 #define ALT_CPU_DATA_ADDR_WIDTH 0x19
 #define ALT_CPU_DCACHE_LINE_SIZE 32
 #define ALT_CPU_DCACHE_LINE_SIZE_LOG2 5
-#define ALT_CPU_DCACHE_SIZE 2048
+#define ALT_CPU_DCACHE_SIZE 16384
 #define ALT_CPU_EXCEPTION_ADDR 0x800020
 #define ALT_CPU_FLUSHDA_SUPPORTED
 #define ALT_CPU_FREQ 50000000
@@ -104,7 +118,7 @@
 #define NIOS2_DATA_ADDR_WIDTH 0x19
 #define NIOS2_DCACHE_LINE_SIZE 32
 #define NIOS2_DCACHE_LINE_SIZE_LOG2 5
-#define NIOS2_DCACHE_SIZE 2048
+#define NIOS2_DCACHE_SIZE 16384
 #define NIOS2_EXCEPTION_ADDR 0x800020
 #define NIOS2_FLUSHDA_SUPPORTED
 #define NIOS2_HARDWARE_DIVIDE_PRESENT 0
@@ -132,10 +146,13 @@
 #define __ALTERA_AVALON_PIO
 #define __ALTERA_AVALON_TIMER
 #define __ALTERA_NIOS2_QSYS
+#define __ALTERA_UP_AVALON_AUDIO
+#define __ALTERA_UP_AVALON_AUDIO_AND_VIDEO_CONFIG
 #define __ALTERA_UP_AVALON_CHARACTER_LCD
 #define __ALTERA_UP_AVALON_SRAM
 #define __ALTERA_UP_AVALON_VIDEO_CHARACTER_BUFFER_WITH_DMA
 #define __ALTERA_UP_AVALON_VIDEO_PIXEL_BUFFER_DMA
+#define __ALTERA_UP_SD_CARD_AVALON_INTERFACE
 
 
 /*
@@ -174,7 +191,7 @@
 #define LEDS_BIT_CLEARING_EDGE_REGISTER 0
 #define LEDS_BIT_MODIFYING_OUTPUT_REGISTER 0
 #define LEDS_CAPTURE 0
-#define LEDS_DATA_WIDTH 8
+#define LEDS_DATA_WIDTH 26
 #define LEDS_DO_TEST_BENCH_WIRING 0
 #define LEDS_DRIVEN_SIM_VALUE 0x0
 #define LEDS_EDGE_TYPE "NONE"
@@ -197,8 +214,8 @@
  */
 
 #define ALT_DEVICE_FAMILY "Cyclone II"
-#define ALT_ENHANCED_INTERRUPT_API_PRESENT
 #define ALT_IRQ_BASE NULL
+#define ALT_LEGACY_INTERRUPT_API_PRESENT
 #define ALT_LOG_PORT "/dev/null"
 #define ALT_LOG_PORT_BASE 0x0
 #define ALT_LOG_PORT_DEV null
@@ -225,6 +242,34 @@
 #define ALT_STDOUT_PRESENT
 #define ALT_STDOUT_TYPE "altera_avalon_jtag_uart"
 #define ALT_SYSTEM_NAME "nios_system"
+
+
+/*
+ * audio_0 configuration
+ *
+ */
+
+#define ALT_MODULE_CLASS_audio_0 altera_up_avalon_audio
+#define AUDIO_0_BASE 0x10010d0
+#define AUDIO_0_IRQ 3
+#define AUDIO_0_IRQ_INTERRUPT_CONTROLLER_ID 0
+#define AUDIO_0_NAME "/dev/audio_0"
+#define AUDIO_0_SPAN 16
+#define AUDIO_0_TYPE "altera_up_avalon_audio"
+
+
+/*
+ * audio_and_video_config_0 configuration
+ *
+ */
+
+#define ALT_MODULE_CLASS_audio_and_video_config_0 altera_up_avalon_audio_and_video_config
+#define AUDIO_AND_VIDEO_CONFIG_0_BASE 0x10010e0
+#define AUDIO_AND_VIDEO_CONFIG_0_IRQ -1
+#define AUDIO_AND_VIDEO_CONFIG_0_IRQ_INTERRUPT_CONTROLLER_ID -1
+#define AUDIO_AND_VIDEO_CONFIG_0_NAME "/dev/audio_and_video_config_0"
+#define AUDIO_AND_VIDEO_CONFIG_0_SPAN 16
+#define AUDIO_AND_VIDEO_CONFIG_0_TYPE "altera_up_avalon_audio_and_video_config"
 
 
 /*
@@ -261,7 +306,7 @@
  */
 
 #define ALT_MODULE_CLASS_character_lcd_0 altera_up_avalon_character_lcd
-#define CHARACTER_LCD_0_BASE 0x10010b0
+#define CHARACTER_LCD_0_BASE 0x10010f0
 #define CHARACTER_LCD_0_IRQ -1
 #define CHARACTER_LCD_0_IRQ_INTERRUPT_CONTROLLER_ID -1
 #define CHARACTER_LCD_0_NAME "/dev/character_lcd_0"
@@ -379,6 +424,60 @@
 
 
 /*
+ * processorGpIn configuration
+ *
+ */
+
+#define ALT_MODULE_CLASS_processorGpIn altera_avalon_pio
+#define PROCESSORGPIN_BASE 0x10010b0
+#define PROCESSORGPIN_BIT_CLEARING_EDGE_REGISTER 0
+#define PROCESSORGPIN_BIT_MODIFYING_OUTPUT_REGISTER 0
+#define PROCESSORGPIN_CAPTURE 0
+#define PROCESSORGPIN_DATA_WIDTH 8
+#define PROCESSORGPIN_DO_TEST_BENCH_WIRING 0
+#define PROCESSORGPIN_DRIVEN_SIM_VALUE 0x0
+#define PROCESSORGPIN_EDGE_TYPE "NONE"
+#define PROCESSORGPIN_FREQ 25000000u
+#define PROCESSORGPIN_HAS_IN 1
+#define PROCESSORGPIN_HAS_OUT 0
+#define PROCESSORGPIN_HAS_TRI 0
+#define PROCESSORGPIN_IRQ -1
+#define PROCESSORGPIN_IRQ_INTERRUPT_CONTROLLER_ID -1
+#define PROCESSORGPIN_IRQ_TYPE "NONE"
+#define PROCESSORGPIN_NAME "/dev/processorGpIn"
+#define PROCESSORGPIN_RESET_VALUE 0x0
+#define PROCESSORGPIN_SPAN 16
+#define PROCESSORGPIN_TYPE "altera_avalon_pio"
+
+
+/*
+ * processorGpOut configuration
+ *
+ */
+
+#define ALT_MODULE_CLASS_processorGpOut altera_avalon_pio
+#define PROCESSORGPOUT_BASE 0x10010c0
+#define PROCESSORGPOUT_BIT_CLEARING_EDGE_REGISTER 0
+#define PROCESSORGPOUT_BIT_MODIFYING_OUTPUT_REGISTER 0
+#define PROCESSORGPOUT_CAPTURE 0
+#define PROCESSORGPOUT_DATA_WIDTH 8
+#define PROCESSORGPOUT_DO_TEST_BENCH_WIRING 0
+#define PROCESSORGPOUT_DRIVEN_SIM_VALUE 0x0
+#define PROCESSORGPOUT_EDGE_TYPE "NONE"
+#define PROCESSORGPOUT_FREQ 25000000u
+#define PROCESSORGPOUT_HAS_IN 0
+#define PROCESSORGPOUT_HAS_OUT 1
+#define PROCESSORGPOUT_HAS_TRI 0
+#define PROCESSORGPOUT_IRQ -1
+#define PROCESSORGPOUT_IRQ_INTERRUPT_CONTROLLER_ID -1
+#define PROCESSORGPOUT_IRQ_TYPE "NONE"
+#define PROCESSORGPOUT_NAME "/dev/processorGpOut"
+#define PROCESSORGPOUT_RESET_VALUE 0x0
+#define PROCESSORGPOUT_SPAN 16
+#define PROCESSORGPOUT_TYPE "altera_avalon_pio"
+
+
+/*
  * sdram_0 configuration
  *
  */
@@ -427,7 +526,7 @@
 #define SWITCHES_BIT_CLEARING_EDGE_REGISTER 0
 #define SWITCHES_BIT_MODIFYING_OUTPUT_REGISTER 0
 #define SWITCHES_CAPTURE 0
-#define SWITCHES_DATA_WIDTH 8
+#define SWITCHES_DATA_WIDTH 18
 #define SWITCHES_DO_TEST_BENCH_WIRING 0
 #define SWITCHES_DRIVEN_SIM_VALUE 0x0
 #define SWITCHES_EDGE_TYPE "NONE"

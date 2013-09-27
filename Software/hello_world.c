@@ -49,6 +49,7 @@ int main()
 	drawLine(pixel_buffer, 64, 0, 64, 240, 0xFFFF);
 	drawLine(pixel_buffer, 64, 0, 320, 240, 0xFFFF);
 	drawLine(pixel_buffer, 64, 240, 320, 0, 0xFFFF);
+	drawLine(pixel_buffer, 64, 80, 320, 80, 0xFFFF);
 	drawBox(pixel_buffer, 10, 90, 54, 150, 0xFFFF);
 	printLine();
 
@@ -56,19 +57,14 @@ int main()
 	setHardwareTimerPeriod(5 * CLOCK_FREQ);
 	startHardwareTimer();
 
-	while (1)
-	{
-		if (hasHardwareTimerExpired() == 1)
-		{
-			printf("Timer has expired\n");
-		}
-	}
-
-	while (1)
+/*	while (1)
 	{
 		keys = IORD_8DIRECT(0x1001080, 0);
-		IOWR_8DIRECT(0x1001070, 0, keys);
-	}
+		//*leds = keys;
+		IOWR_16DIRECT(0x1001070, 0, keys);
+	}*/
+
+	audioTest();
 
 	timer_test();
 	timeMatrixMultiply();

@@ -10,4 +10,5 @@ void runAudioDiagnostics(void);
 void testTone(void);
 void playLaser1(void);
 void readWavFile(char *wavFileName, unsigned int fileWordLength, unsigned int *buffer);
-
+void playAudioMono(unsigned int *buffer, int length);
+void playLaser(void);

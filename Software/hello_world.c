@@ -22,6 +22,9 @@
 #include "sd_card.h"
 #include "vga.h"
 #include "io.h"
+#include "system.h"
+#include "altera_nios2_qsys_irq.h"
+#include "sys/alt_irq.h"
 
 #define switches (volatile char *) 0x1001060
 #define leds (char *) 0x1001070
@@ -30,8 +33,11 @@
 int main()
 {
 	// Mandatory setup code for peripherals
-	setupAudio();
+	// SD card must be opened before audio is setup
 	openSdCard();
+	setupAudio();
+
+
 	//***
 
 	alt_up_character_lcd_dev * char_lcd_dev;
@@ -75,7 +81,7 @@ int main()
 	}*/
 	while(1) {
 		if ((IORD_8DIRECT(keys, 0)) != 0x00) {
-			playLaser1();
+			playLaser();
 		}
 	}
 	audioTest();

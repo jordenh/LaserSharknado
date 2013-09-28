@@ -2,10 +2,10 @@
 <sch:Settings xmlns:sch="http://www.altera.com/embeddedsw/bsp/schema">
         <BspType>hal</BspType>
         <BspVersion>default</BspVersion>
-        <BspGeneratedTimeStamp>Sep 26, 2013 10:50:51 PM</BspGeneratedTimeStamp>
-        <BspGeneratedUnixTimeStamp>1380261051824</BspGeneratedUnixTimeStamp>
-        <BspGeneratedLocation>C:\Users\jorde_000\Documents\GitHub\LaserSharknado\LaserSharknado_bsp</BspGeneratedLocation>
-        <BspSettingsFile>settings.bsp</BspSettingsFile>
+        <BspGeneratedTimeStamp>Sep 28, 2013 11:42:30 AM</BspGeneratedTimeStamp>
+        <BspGeneratedUnixTimeStamp>1380393750394</BspGeneratedUnixTimeStamp>
+        <BspGeneratedLocation>C:\Users\Gord\Documents\repos\LaserSharknado\LaserSharknado_bsp</BspGeneratedLocation>
+        <BspSettingsFile>C:\Users\Gord\Documents\repos\LaserSharknado\LaserSharknado_bsp\settings.bsp</BspSettingsFile>
         <SopcDesignFile>..\HDL\nios_system.sopcinfo</SopcDesignFile>
         <JdiFile>default</JdiFile>
         <Cpu>nios2_qsys_0</Cpu>

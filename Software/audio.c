@@ -1,11 +1,15 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
+#include "system.h"
 #include "timer.h"
 #include "audio.h"
 #include "sd_card.h"
 #include "altera_up_avalon_audio_and_video_config.h"
 #include "altera_up_avalon_audio.h"
+#include "sys/alt_irq.h"
+
+static void playLaserInterrupt(void *isr_context);
 
 //#include "audio_up_hack.h"
 
@@ -16,18 +20,22 @@ alt_up_audio_dev *audio = NULL;
 
 alt_up_av_config_dev *config = NULL;
 
-int DEBUG = 0;//1;
+int DEBUG = 1;
 int toneLength = 122;
 unsigned int tone[122];
 
 unsigned int *laserBuffer;
+unsigned int *laserCursor;
 unsigned int laserBufferLength;
+unsigned int laserFileWordLength;
 
 void setupAudio()
 {
+	bool error = false;
 	config = (alt_up_av_config_dev *)alt_up_av_config_open_dev(CONFIG_NAME);
 	if (config == NULL) {
 		printf("Error: audio video config could not be opened.\n");
+		error = true;
 	}
 	while (!alt_up_av_config_read_ready(config)) {
 	}
@@ -35,6 +43,9 @@ void setupAudio()
 	audio = (alt_up_audio_dev *)alt_up_audio_open_dev(AUDIO_NAME);
 	if (config == NULL) {
 		printf("Error: audio codec could not be opened.\n");
+		error = true;
+	} else if (DEBUG == 1) {
+		printf("Successfully opened audio codec.\n");
 	}
 
 	int amp = 10000000;
@@ -45,28 +56,46 @@ void setupAudio()
 		//tone[i] = i % 2 == 0 ? 0x00000FFF : 0x00000000;
 	}
 
-	// Setup interrupts
+	// Need to disable both audio interrupts before setting them up
+	// otherwise you get stuck in them when they are setup
 	alt_up_audio_disable_read_interrupt(audio);
-	alt_up_audio_enable_write_interrupt(audio);
+	alt_up_audio_disable_write_interrupt(audio);
 
-	if (DEBUG == 1) {
+	void *context = NULL;
+	void (*functionPtr)(void *);
+	functionPtr = &playLaserInterrupt;
+	alt_isr_func *handler = (alt_isr_func *)functionPtr;
+
+	int interruptStatus = alt_irq_register(AUDIO_0_IRQ, context, *handler);
+
+	if (interruptStatus < 0) {
+		printf("Error: audio interrupt could not be setup.\n");
+		error = true;
+	} else if (DEBUG == 1) {
+		printf("Successfully setup audio interrupts.\n");
+	}
+
+	laserFileWordLength = 38384;//laserii//(getWavFileLength("laseri.wav") / 2);// laser i = 26200;/*looked in hex file *///
+	printf("File Length is: %x\n", laserFileWordLength);
+	readWavFile("laserii.wav", laserFileWordLength, laserBuffer);
+
+	if (DEBUG == 1 && error == false) {
 		printf("Successfully setup sound.\n");
 	}
 }
 
-// Need to check if we write words or bytes to the FIFOs
-void playAudio(unsigned int *leftBuffer, int leftLength, unsigned int *rightBuffer, int rightLength)
-{
-	// check that fifos have space
+void playAudioMono(unsigned int *buffer, int length) {
+	alt_up_audio_write_fifo(audio, buffer, length, ALT_UP_AUDIO_LEFT);
+	alt_up_audio_write_fifo(audio, buffer, length, ALT_UP_AUDIO_RIGHT);
+}
+
+void playAudio(unsigned int *leftBuffer, int leftLength, unsigned int *rightBuffer, int rightLength) {
 	int leftWritten = alt_up_audio_write_fifo(audio, leftBuffer, leftLength, ALT_UP_AUDIO_LEFT);
 	int rightWritten = alt_up_audio_write_fifo(audio, rightBuffer, rightLength, ALT_UP_AUDIO_RIGHT);
 
-	//int leftWritten = alt_up_audio_play_l(audio, leftBuffer, leftLength);
-	//int rightWritten = alt_up_audio_play_r(audio, rightBuffer, rightLength);
-
 	if (DEBUG == 1) {
-		printf("Wrote %d to left audio FIFO. with value\n", leftWritten, *leftBuffer);
-		printf("Wrote %d to right audio FIFO.\n", rightWritten, *rightBuffer);
+		printf("Wrote %d to left audio FIFO. with value\n", leftWritten);
+		printf("Wrote %d to right audio FIFO.\n", rightWritten);
 	}
 }
 
@@ -148,7 +177,7 @@ void playLaser1(void) {
 	for (;;) {
 		free = alt_up_audio_write_fifo_space(audio, ALT_UP_AUDIO_RIGHT);
 		if (free > 1) {
-			if ((int)cursor + free >= (int)laserBuffer + (2 *fileWordLength)) {
+			if ((int)cursor + free >= (int)laserBuffer + (2 * fileWordLength)) {
 				// Wrap around
 				len = fileWordLength - free;
 				wrap = 1;
@@ -175,10 +204,8 @@ void readWavFile(char *wavFileName, unsigned int fileWordLength, unsigned int *b
 	readPastWavHeader(fileHandle);
 
 	unsigned int i = 0;
-	unsigned int j = 0;
 	unsigned int word = readWord(fileHandle);
 	printf("first word is %x\n", word);
-	//while (word != -1) {
 	while (i < fileWordLength) {
 		laserBuffer[i++] = word;
 		word = readWord(fileHandle);
@@ -189,3 +216,32 @@ void readWavFile(char *wavFileName, unsigned int fileWordLength, unsigned int *b
 	return;
 }
 
+// Plays laser once, using interrupts
+void playLaser(void) {
+	if (DEBUG == 1) {
+		printf("Playing laser via interrupt.\n");
+	}
+
+	laserCursor = laserBuffer;
+	//playLaserInterrupt((void *)NULL);
+	alt_up_audio_enable_write_interrupt(audio);
+}
+
+static void playLaserInterrupt(void *isr_context) {
+	// Disable other interrupts?
+	//alt_irq_context state = alt_irq_disable_all();
+	int len;
+	unsigned int free = alt_up_audio_write_fifo_space(audio, ALT_UP_AUDIO_RIGHT);
+	if (free > 1) {
+		if ((int)laserCursor + free >= (int)laserBuffer + (2 * laserFileWordLength)) {
+			// Last chunk to play
+			len = laserFileWordLength - free;
+			alt_up_audio_disable_write_interrupt(audio);
+		} else {
+			len = free;
+		}
+		playAudioMono(laserCursor, len);
+		laserCursor += len;
+	}
+	alt_irq_enable_all(*((alt_irq_context *)isr_context));
+}

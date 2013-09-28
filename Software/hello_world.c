@@ -25,6 +25,7 @@
 
 #define switches (volatile char *) 0x1001060
 #define leds (char *) 0x1001070
+#define keys (volatile char *) 0x1001080
 
 int main()
 {
@@ -72,8 +73,11 @@ int main()
 		// *leds = keys;
 		IOWR_16DIRECT(0x1001070, 0, keys);
 	}*/
-
-	playLaser1();
+	while(1) {
+		if ((IORD_8DIRECT(keys, 0)) != 0x00) {
+			playLaser1();
+		}
+	}
 	audioTest();
 
 	return 0;

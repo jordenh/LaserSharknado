@@ -32,7 +32,7 @@ short int readWord(short int fh) {
 	if (byte1 == -1 || byte2 == -1)
 		return -1;
 
-	return ((unsigned short int)byte2 << 8) | (unsigned short int)byte1;
+	return ((unsigned short int)byte2 << 8) | ((unsigned short int)byte1 & 0x00FF);
 }
 
 int readDWord(short int fh) {
@@ -49,7 +49,7 @@ int readDWord(short int fh) {
 	return ((unsigned short int)byte4 << 24) | ((unsigned short int)byte3 << 16) | ((unsigned short int)byte2 << 8) | (unsigned short int)byte1;
 }
 
-unsigned int getWavFileLength(char *fileName) {
+unsigned int getWavFileLength(char *fileName) { // TBD: This function MUST be fixed - it currently returns an incorrect value, becuase - vals dont always mean it's done.
 	unsigned int fileLength = 0;
 
 	short int fileHandle = openFile(fileName);
@@ -57,7 +57,7 @@ unsigned int getWavFileLength(char *fileName) {
 		printf("Error occurred, unable to open file in 'getFileLength' with name: %s", fileName);
 	}
 
-	readPastWavHeader(fileHandle);
+	readPastWavHeader(fileHandle); // to get wav file length, dont bypass header i think..
 
 	short int wordRead = readWord(fileHandle);
 	//unsigned char firstByte = 0x0000FFFF | wordRead;
@@ -67,7 +67,7 @@ unsigned int getWavFileLength(char *fileName) {
 		fileLength += 2;
 		wordRead = readWord(fileHandle);
 	}
-	if ((short int)wordRead < -1) {
+	if ((short int)wordRead <= -1) {
 		printf("Error reading bytes from %s\n", fileName);
 	}
 

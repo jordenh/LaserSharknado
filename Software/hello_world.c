@@ -79,8 +79,13 @@ int main()
 		// *leds = keys;
 		IOWR_16DIRECT(0x1001070, 0, keys);
 	}*/
+	short int debounce = 0;
 	while(1) {
-		if ((IORD_8DIRECT(keys, 0)) != 0x00) {
+		if ((IORD_8DIRECT(keys, 0)) != 0x00 && debounce == 0) {
+			debounce = 1;
+
+		} else if ((IORD_8DIRECT(keys, 0)) == 0x00 && debounce == 1){
+			debounce = 0;
 			playLaser();
 		}
 	}

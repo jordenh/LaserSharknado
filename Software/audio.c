@@ -7,9 +7,14 @@
 #include "sd_card.h"
 #include "altera_up_avalon_audio_and_video_config.h"
 #include "altera_up_avalon_audio.h"
+#include "alt_types.h"
 #include "sys/alt_irq.h"
 
-static void playLaserInterrupt(void *isr_context);
+#ifdef ALT_ENHANCED_INTERRUPT_API_PRESENT
+static void playLaserInterrupt(void* isr_context);
+#else
+static void playLaserInterrupt(void* isr_context, alt_u32 id);
+#endif
 
 //#include "audio_up_hack.h"
 
@@ -20,14 +25,16 @@ alt_up_audio_dev *audio = NULL;
 
 alt_up_av_config_dev *config = NULL;
 
-int DEBUG = 1;
+int DEBUG = 0;
 int toneLength = 122;
 unsigned int tone[122];
 
 unsigned int *laserBuffer;
-unsigned int *laserCursor;
+volatile unsigned int *laserCursor;
 unsigned int laserBufferLength;
 unsigned int laserFileWordLength;
+
+volatile int somethingForIrq;
 
 void setupAudio()
 {
@@ -53,22 +60,10 @@ void setupAudio()
 	int i;
 	for (i = 0; i < toneLength; i++) {
 		tone[i] = amp * sin((float)i * 3.141592 / 122.0);//* (PI / 8.0));
-		//tone[i] = i % 2 == 0 ? 0x00000FFF : 0x00000000;
-	}
+    }
+    int interruptStatus = setupAudioInterrupt(audio, somethingForIrq);
 
-	// Need to disable both audio interrupts before setting them up
-	// otherwise you get stuck in them when they are setup
-	alt_up_audio_disable_read_interrupt(audio);
-	alt_up_audio_disable_write_interrupt(audio);
-
-	void *context = NULL;
-	void (*functionPtr)(void *);
-	functionPtr = &playLaserInterrupt;
-	alt_isr_func *handler = (alt_isr_func *)functionPtr;
-
-	int interruptStatus = alt_irq_register(AUDIO_0_IRQ, context, *handler);
-
-	if (interruptStatus < 0) {
+    if (interruptStatus < 0) {
 		printf("Error: audio interrupt could not be setup.\n");
 		error = true;
 	} else if (DEBUG == 1) {
@@ -82,6 +77,18 @@ void setupAudio()
 	if (DEBUG == 1 && error == false) {
 		printf("Successfully setup sound.\n");
 	}
+}
+
+int setupAudioInterrupt(alt_up_audio_dev **audio, volatile int somethingForIrq)
+{
+    // Need to disable both audio interrupts before setting them up
+    // otherwise you get stuck in them when they are setup
+    alt_up_audio_disable_read_interrupt(audio);
+    alt_up_audio_disable_write_interrupt(audio);
+
+    void *irqInt = (void*)&somethingForIrq;
+
+    return alt_ic_isr_register(AUDIO_0_IRQ_INTERRUPT_CONTROLLER_ID, AUDIO_0_IRQ, playLaserInterrupt, irqInt, 0x0);
 }
 
 void playAudioMono(unsigned int *buffer, int length) {
@@ -118,13 +125,8 @@ void audioTest()
 
 	//sin (param*PI/180); for degrees, it uses radians
 
-	// Should use a timer to measure how long it takes to stick a byte in and whatever
-	// Is it easier (processor wise) to move in larger chunks, or is there no difference?
-
-	//alt_up_audio_reset_audio_core(audio);
 	int free = alt_up_audio_write_fifo_space(audio, ALT_UP_AUDIO_RIGHT);
 	printf("%d words free in right FIFO\n", free);
-	// printf("Entering loop");
 
 	for (;;) {
 		free = alt_up_audio_write_fifo_space(audio, ALT_UP_AUDIO_RIGHT);
@@ -133,11 +135,6 @@ void audioTest()
 			//printf("Playing audio\n");
 			playAudio(leftBuffer, length, rightBuffer, length);
 		}
-//		else {
-//			if (DEBUG == 1) {
-//				//printf("Skipped audio write\n");
-//			}
-//		}
 	}
 }
 
@@ -191,7 +188,6 @@ void playLaser1(void) {
 	}
 }
 
-
 void readWavFile(char *wavFileName, unsigned int fileWordLength, unsigned int *buffer) {
 	laserBuffer = malloc(fileWordLength * 2); //words are 2 bytes // this line should be changed
 
@@ -223,13 +219,14 @@ void playLaser(void) {
 	}
 
 	laserCursor = laserBuffer;
-	//playLaserInterrupt((void *)NULL);
 	alt_up_audio_enable_write_interrupt(audio);
 }
 
-static void playLaserInterrupt(void *isr_context) {
-	// Disable other interrupts?
-	//alt_irq_context state = alt_irq_disable_all();
+#ifdef ALT_ENHANCED_INTERRUPT_API_PRESENT
+static void playLaserInterrupt(void* isr_context) {
+#else
+static void playLaserInterrupt(void* isr_context, alt_u32 id) {
+#endif
 	int len;
 	unsigned int free = alt_up_audio_write_fifo_space(audio, ALT_UP_AUDIO_RIGHT);
 	if (free > 1) {
@@ -240,8 +237,7 @@ static void playLaserInterrupt(void *isr_context) {
 		} else {
 			len = free;
 		}
-		playAudioMono(laserCursor, len);
+		playAudioMono((unsigned int *)laserCursor, len);
 		laserCursor += len;
 	}
-	alt_irq_enable_all(*((alt_irq_context *)isr_context));
 }

@@ -16,6 +16,8 @@ static void playLaserInterrupt(void* isr_context);
 static void playLaserInterrupt(void* isr_context, alt_u32 id);
 #endif
 
+int setupAudioInterrupt(alt_up_audio_dev **audio, volatile int somethingForIrq);
+
 //#include "audio_up_hack.h"
 
 const char *CONFIG_NAME = "/dev/audio_and_video_config_0"; // may need to change to verilog version
@@ -88,7 +90,12 @@ int setupAudioInterrupt(alt_up_audio_dev **audio, volatile int somethingForIrq)
 
     void *irqInt = (void*)&somethingForIrq;
 
+	#ifdef ALT_ENHANCED_INTERRUPT_API_PRESENT
     return alt_ic_isr_register(AUDIO_0_IRQ_INTERRUPT_CONTROLLER_ID, AUDIO_0_IRQ, playLaserInterrupt, irqInt, 0x0);
+	#else
+    return alt_irq_register(AUDIO_0_IRQ, irqInt, playLaserInterrupt);
+	#endif
+
 }
 
 void playAudioMono(unsigned int *buffer, int length) {

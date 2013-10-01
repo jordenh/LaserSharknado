@@ -9,3 +9,24 @@
 !*.vhd
 !*.bmp
 !*.wav
+
+# blacklist some other stuff
+*.o
+*.d
+*.bsp
+*.gdb
+*.x
+*.qip
+*.sopcinfo
+*.html
+*.hdb
+*.dpi
+*.cdb
+*.kpt
+*.qmsg
+*.rdb
+*.bpm
+*.summary
+*.done
+*.flock
+

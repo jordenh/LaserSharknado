@@ -43,7 +43,7 @@ void drawLine(alt_up_pixel_buffer_dma_dev* pixel_buffer, int x0, int y0, int x1,
 	}
 	else if (x0 == x1)
 	{
-		alt_up_pixel_buffer_dma_draw_hline(pixel_buffer, x0, y0, y1, color, 0);
+		alt_up_pixel_buffer_dma_draw_vline(pixel_buffer, x0, y0, y1, color, 0);
 	}
 	else
 	{

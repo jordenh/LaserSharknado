@@ -25,6 +25,8 @@ port (
     DRAM_UDQM, DRAM_LDQM : BUFFER STD_LOGIC;
     LCD_DATA : INOUT STD_LOGIC_VECTOR(7 DOWNTO 0);
     LCD_ON, LCD_BLON, LCD_EN, LCD_RS, LCD_RW : out STD_LOGIC;
+	 CLOCK_27	: IN STD_LOGIC;
+	 
 	 SD_CMD, SD_DAT, SD_DAT3 : INOUT STD_LOGIC;
 	 SD_CLK : OUT STD_LOGIC;
 	 VGA_R:out	std_logic_vector(9	downto	0);	
@@ -41,7 +43,16 @@ port (
 	 SRAM_UB_N	:	OUT	STD_LOGIC;
 	 SRAM_CE_N	:	OUT	STD_LOGIC;
 	 SRAM_OE_N	:	OUT	STD_LOGIC;
-	 SRAM_WE_N	:	OUT	STD_LOGIC
+	 SRAM_WE_N	:	OUT	STD_LOGIC;
+	 AUD_ADCDAT :	IN 	STD_LOGIC;
+	 AUD_ADCLRCK : IN  	STD_LOGIC;
+	 AUD_BCLK	:	IN 	STD_LOGIC;
+	 AUD_DACDAT :	OUT	STD_LOGIC;
+	 AUD_DACLRCK : IN		STD_LOGIC;
+	 I2C_SDAT	: 	INOUT	STD_LOGIC;
+	 I2C_SCLK	:  OUT	STD_LOGIC;
+	 AUD_XCK		: 	OUT	STD_LOGIC;
+	 TD_RESET	: 	OUT	STD_LOGIC
 );
 end LaserSharknado;
 
@@ -89,7 +100,17 @@ architecture behavioural of LaserSharknado is
 		  sram_UB_N : OUT STD_LOGIC;
 		  sram_CE_N : OUT STD_LOGIC;
 		  sram_OE_N : OUT STD_LOGIC;
-		  sram_WE_N : OUT STD_LOGIC
+		  sram_WE_N : OUT STD_LOGIC;
+		  
+		  audio_clk_clk : OUT STD_LOGIC;
+		  id_27_clk_clk : IN STD_LOGIC;
+		  audio_codec_ADCDAT : IN STD_LOGIC;
+		  audio_codec_ADCLRCK : IN STD_LOGIC;
+		  audio_codec_BCLK 	: IN STD_LOGIC;
+		  audio_codec_DACDAT			: OUT STD_LOGIC;
+		  audio_codec_DACLRCK			: IN STD_LOGIC;
+		  audio_video_config_SDAT : INOUT STD_LOGIC;
+		  audio_video_config_SCLK : OUT STD_LOGIC
         );
     END COMPONENT;
 
@@ -148,6 +169,16 @@ BEGIN
 		  sram_UB_N	=>	SRAM_UB_N,
 		  sram_CE_N	=>	SRAM_CE_N,
 		  sram_OE_N	=>	SRAM_OE_N,
-		  sram_WE_N	=>	SRAM_WE_N
+		  sram_WE_N	=>	SRAM_WE_N,
+		  
+		  audio_clk_clk 				=> AUD_XCK,
+		  id_27_clk_clk 				=> CLOCK_27,
+		  audio_codec_ADCDAT 		=> AUD_ADCDAT,
+		  audio_codec_ADCLRCK 		=> AUD_ADCLRCK,
+		  audio_codec_BCLK 			=> AUD_BCLK,
+		  audio_codec_DACDAT					=> AUD_DACDAT,
+		  audio_codec_DACLRCK			 	=> AUD_DACLRCK,
+		  audio_video_config_SDAT  => I2C_SDAT,
+		  audio_video_config_SCLK 	=> I2C_SCLK
     );
 end behavioural;

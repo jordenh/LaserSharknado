@@ -1,25 +1,32 @@
-# Object files
+#First ignore everything!
+
+*
+
+#Now, whitelist anything that's valued.
+
+!*.c
+!*.h
+!*.vhd
+!*.bmp
+!*.wav
+
+# blacklist some other stuff
 *.o
-
-# Libraries
-*.lib
-*.a
-
-# Shared objects (inc. Windows DLLs)
-*.dll
-*.so
-*.so.*
-*.dylib
-
-# Executables
-*.exe
-*.out
-*.app
-
-
-#VHDL Stuff
-*.cdb
+*.d
+*.bsp
+*.gdb
+*.x
+*.qip
+*.sopcinfo
+*.html
 *.hdb
+*.dpi
+*.cdb
+*.kpt
+*.qmsg
 *.rdb
-*.tdf
-*.log*
+*.bpm
+*.summary
+*.done
+*.flock
+

@@ -1,5 +1,5 @@
 Flow report for LaserSharknado
-Thu Sep 26 18:36:48 2013
+Sun Sep 29 09:21:09 2013
 Quartus II 32-bit Version 12.0 Build 263 08/02/2012 Service Pack 2 SJ Web Edition
 
 
@@ -38,7 +38,7 @@ applicable agreement for further details.
 +------------------------------------------------------------------------------------+
 ; Flow Summary                                                                       ;
 +------------------------------------+-----------------------------------------------+
-; Flow Status                        ; Successful - Thu Sep 26 18:36:46 2013         ;
+; Flow Status                        ; Successful - Sun Sep 29 09:21:08 2013         ;
 ; Quartus II 32-bit Version          ; 12.0 Build 263 08/02/2012 SP 2 SJ Web Edition ;
 ; Revision Name                      ; LaserSharknado                                ;
 ; Top-level Entity Name              ; LaserSharknado                                ;
@@ -62,7 +62,7 @@ applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 09/26/2013 18:34:49 ;
+; Start date & time ; 09/29/2013 09:19:12 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; LaserSharknado      ;
 +-------------------+---------------------+
@@ -73,7 +73,7 @@ applicable agreement for further details.
 +-------------------------------------+---------------------------------------------------------------------+---------------+------------------------------------------+------------+
 ; Assignment Name                     ; Value                                                               ; Default Value ; Entity Name                              ; Section Id ;
 +-------------------------------------+---------------------------------------------------------------------+---------------+------------------------------------------+------------+
-; COMPILER_SIGNATURE_ID               ; 174058758851056.138024568802932                                     ; --            ; --                                       ; --         ;
+; COMPILER_SIGNATURE_ID               ; 174058758851056.138047155107492                                     ; --            ; --                                       ; --         ;
 ; IP_TOOL_ENV                         ; qsys                                                                ; --            ; altera_avalon_sc_fifo                    ; --         ;
 ; IP_TOOL_ENV                         ; qsys                                                                ; --            ; altera_avalon_st_handshake_clock_crosser ; --         ;
 ; IP_TOOL_ENV                         ; qsys                                                                ; --            ; altera_irq_clock_crosser                 ; --         ;
@@ -208,7 +208,7 @@ applicable agreement for further details.
 ; PARTITION_COLOR                     ; 16764057                                                            ; --            ; --                                       ; Top        ;
 ; PARTITION_FITTER_PRESERVATION_LEVEL ; PLACEMENT_AND_ROUTING                                               ; --            ; --                                       ; Top        ;
 ; PARTITION_NETLIST_TYPE              ; SOURCE                                                              ; --            ; --                                       ; Top        ;
-; SLD_INFO                            ; QSYS_NAME nios_system HAS_SOPCINFO 1 GENERATION_ID 1380245523       ; --            ; nios_system                              ; --         ;
+; SLD_INFO                            ; QSYS_NAME nios_system HAS_SOPCINFO 1 GENERATION_ID 1380471229       ; --            ; nios_system                              ; --         ;
 ; SYNTHESIS_ONLY_QIP                  ; On                                                                  ; --            ; --                                       ; --         ;
 +-------------------------------------+---------------------------------------------------------------------+---------------+------------------------------------------+------------+
 
@@ -218,11 +218,11 @@ applicable agreement for further details.
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis      ; 00:00:55     ; 1.0                     ; 517 MB              ; 00:00:54                           ;
-; Fitter                    ; 00:00:51     ; 1.0                     ; 556 MB              ; 00:00:50                           ;
+; Analysis & Synthesis      ; 00:00:56     ; 1.0                     ; 518 MB              ; 00:00:55                           ;
+; Fitter                    ; 00:00:48     ; 1.0                     ; 559 MB              ; 00:00:48                           ;
 ; Assembler                 ; 00:00:04     ; 1.0                     ; 376 MB              ; 00:00:04                           ;
-; TimeQuest Timing Analyzer ; 00:00:06     ; 1.0                     ; 389 MB              ; 00:00:05                           ;
-; Total                     ; 00:01:56     ; --                      ; --                  ; 00:01:53                           ;
+; TimeQuest Timing Analyzer ; 00:00:05     ; 1.0                     ; 389 MB              ; 00:00:05                           ;
+; Total                     ; 00:01:53     ; --                      ; --                  ; 00:01:52                           ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

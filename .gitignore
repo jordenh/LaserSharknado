@@ -28,4 +28,5 @@
 *.bpm
 *.summary
 *.done
+*.flock
 

@@ -9,4 +9,5 @@ void audioTest(void);
 void runAudioDiagnostics(void);
 void testTone(void);
 void playLaser1(void);
-void readWavFile(const char *wavFileName, unsigned int fileWordLength, unsigned int *buffer);
+void readWavFile(char *wavFileName, unsigned int fileWordLength, unsigned int *buffer);
+

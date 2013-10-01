@@ -16,7 +16,7 @@ alt_up_audio_dev *audio = NULL;
 
 alt_up_av_config_dev *config = NULL;
 
-int DEBUG = 1;
+int DEBUG = 0;//1;
 int toneLength = 122;
 unsigned int tone[122];
 
@@ -65,8 +65,8 @@ void playAudio(unsigned int *leftBuffer, int leftLength, unsigned int *rightBuff
 	//int rightWritten = alt_up_audio_play_r(audio, rightBuffer, rightLength);
 
 	if (DEBUG == 1) {
-		printf("Wrote %d to left audio FIFO.\n", leftWritten);
-		printf("Wrote %d to right audio FIFO.\n", rightWritten);
+		printf("Wrote %d to left audio FIFO. with value\n", leftWritten, *leftBuffer);
+		printf("Wrote %d to right audio FIFO.\n", rightWritten, *rightBuffer);
 	}
 }
 
@@ -138,16 +138,17 @@ void testTone(void)
 }
 
 void playLaser1(void) {
-	unsigned int fileWordLength = (getFileLength("laseri.wav") / 2);
+	unsigned int fileWordLength = 38384;//laserii//(getWavFileLength("laseri.wav") / 2);// laser i = 26200;/*looked in hex file *///
 	printf("File Length is: %x\n", fileWordLength);
-	readWavFile("laseri.wav", fileWordLength, laserBuffer);
+	readWavFile("laserii.wav", fileWordLength, laserBuffer);
 
-	int free, wrap, len;
+	int free, len;
+	int wrap = 0;
 	unsigned int *cursor = laserBuffer;
 	for (;;) {
 		free = alt_up_audio_write_fifo_space(audio, ALT_UP_AUDIO_RIGHT);
 		if (free > 1) {
-			if ((int)*cursor + free >= fileWordLength) {
+			if ((int)cursor + free >= (int)laserBuffer + (2 *fileWordLength)) {
 				// Wrap around
 				len = fileWordLength - free;
 				wrap = 1;
@@ -162,21 +163,29 @@ void playLaser1(void) {
 }
 
 
-void readWavFile(const char *wavFileName, unsigned int fileWordLength, unsigned int *buffer) {
-	//unsigned int fileLength = getFileLength(wavFileName);
-	short int fileHandle = openFile(wavFileName);
-
+void readWavFile(char *wavFileName, unsigned int fileWordLength, unsigned int *buffer) {
 	laserBuffer = malloc(fileWordLength * 2); //words are 2 bytes // this line should be changed
+
+	short int fileHandle = openFile(wavFileName);
+	if (fileHandle == -1) {
+		printf("Error opening %s\n", wavFileName);
+		return;
+	}
+
+	readPastWavHeader(fileHandle);
+
 	unsigned int i = 0;
+	unsigned int j = 0;
 	unsigned int word = readWord(fileHandle);
 	printf("first word is %x\n", word);
-	while (word != -1) {
+	//while (word != -1) {
+	while (i < fileWordLength) {
 		laserBuffer[i++] = word;
 		word = readWord(fileHandle);
 	}
 	printf("reached EOF\n");
 
-	closeFile(wavFileName);
+	closeFile(fileHandle);
 	return;
 }
 

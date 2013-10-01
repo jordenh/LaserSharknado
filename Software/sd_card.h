@@ -11,6 +11,7 @@ int closeFile(short int fh);
 unsigned char readByte(short int fh);
 short int readWord(short int fh);
 int readDWord(short int fh);
-unsigned int getFileLength(const char *fileName);
+unsigned int getWavFileLength(char *fileName);
+void readPastWavHeader(short int handle);
 
 #endif
